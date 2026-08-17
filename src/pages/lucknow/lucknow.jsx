@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./lucknow.css";
 
-import lucknowImage from "./lucknow.jpg";
+import lucknowImage from "./Lucknow.jpg";
 import BaraImambaraImage from "./BaraImambara.jpg";
 import RumiDarwazaImage from "./RumiDarwaza.jpg";
 import ChotaImambaraImage from "./Imambara.jpg";
@@ -9,7 +9,7 @@ import BritishResidencyImage from "./BritishResidency.jpg";
 import AmbedkarParkImage from "./AmbedkarPark.jpg";
 import DilkushaKothiImage from "./DilkushaKothi.jpg";
 
-import galautiKababImage from "./galautiKabab.jpg";
+import galautiKababImage from "./galautikabab.jpg";
 import LucknowiBiryaniImage from "./LucknowiBiryani.jpg";
 import VegBiryaniImage from "./vegbiryani.jpg";
 import BasketChaatImage from "./BasketChaat.jpg";
