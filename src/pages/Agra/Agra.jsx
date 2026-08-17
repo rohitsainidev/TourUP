@@ -5,7 +5,7 @@ import tajMahal from "./taj-mahal.jpg";
 import agraFort from "./agra-fort.webp";
 import mehtabBagh from "./mehtab-bagh.webp";
 import babyTaj from "./itmad-ud-daulah.webp";
-import fatehpurSikri from "./fatehpur-sikri.webp";
+import fatehpurSikri from "./Fatehpur-Sikri.webp";
 import petha from "./agra-petha.jpg";
 
 function Agra() {

@@ -4,7 +4,7 @@ import "./ayodhya.css";
 import ayodhyaImage from "./ayodhya.jpg";
 import HanumangarhiImage from "./Hanumangarhi.jpg";
 import sharyuGhatImage from "./sharyuGhat.jpg";
-import kanakBhawanImage from "./kanakBhawan.jpg";
+import kanakBhawanImage from "./KanakBhawan.jpg";
 import DashrathMahalImage from "./DashrathMahal.jpg";
 import RamkiPaidiImage from "./RamkiPaidi.jpg";
 

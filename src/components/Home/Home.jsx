@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Home.css";
 
 import tajmahal from "../../assets/tajmahal.jpg";
-import varanasi from "../../assets/varanasi.jpg";
-import ayodhya from "../../assets/ayodhya.jpg";
-import lucknow from "../../assets/lucknow.jpg";
+import varanasi from "../../assets/Varanasi.jpg";
+import ayodhya from "../../assets/Ayodhya.jpg";
+import lucknow from "../../assets/Lucknow.jpg";
 
 
 function Home() {
