@@ -1,0 +1,347 @@
+/* =====================================================
+   TOURUP SIGNUP PAGE
+   ALL CSS IS SCOPED TO .tourup-signup-page
+===================================================== */
+
+
+/* MAIN PAGE */
+
+.tourup-signup-page {
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+
+  display: flex;
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   LEFT SIDE - 50%
+===================================================== */
+
+.tourup-signup-page .tourup-auth-left {
+  width: 50%;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px 40px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+
+/* FORM */
+
+.tourup-signup-page .tourup-auth-form {
+  width: 100%;
+  max-width: 430px;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.tourup-signup-page .tourup-auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 25px;
+
+  font-size: 28px;
+  font-weight: 800;
+
+  color: #e87520;
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.tourup-signup-page .tourup-auth-form h1 {
+  margin: 0 0 7px;
+
+  font-size: 34px;
+  line-height: 1.2;
+
+  color: #222222;
+}
+
+
+.tourup-signup-page .tourup-auth-subtitle {
+  margin: 0 0 24px;
+
+  font-size: 14px;
+
+  color: #777777;
+}
+
+
+/* =====================================================
+   INPUT GROUP
+===================================================== */
+
+.tourup-signup-page .tourup-input-group {
+  width: 100%;
+
+  margin-bottom: 14px;
+}
+
+
+.tourup-signup-page .tourup-input-group label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #333333;
+}
+
+
+.tourup-signup-page .tourup-input-group input {
+  width: 100%;
+  height: 45px;
+
+  padding: 0 14px;
+
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #222222;
+
+  font-size: 13px;
+
+  outline: none;
+
+  box-sizing: border-box;
+
+  transition: 0.2s;
+}
+
+
+.tourup-signup-page .tourup-input-group input:focus {
+  border-color: #e87520;
+
+  box-shadow: 0 0 0 3px rgba(232, 117, 32, 0.10);
+}
+
+
+/* =====================================================
+   PASSWORD
+===================================================== */
+
+.tourup-signup-page .tourup-password-wrapper {
+  position: relative;
+
+  width: 100%;
+}
+
+
+.tourup-signup-page .tourup-password-wrapper input {
+  padding-right: 48px;
+}
+
+
+.tourup-signup-page .tourup-password-btn {
+  position: absolute;
+
+  right: 10px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 30px;
+  height: 30px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.tourup-signup-page .tourup-auth-button {
+  width: 100%;
+  height: 47px;
+
+  margin-top: 5px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #e87520;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.tourup-signup-page .tourup-auth-button:hover {
+  background: #d86412;
+}
+
+
+/* =====================================================
+   LOGIN LINK
+===================================================== */
+
+.tourup-signup-page .tourup-auth-switch {
+  margin: 17px 0 0;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  color: #777777;
+}
+
+
+.tourup-signup-page .tourup-auth-switch a {
+  margin-left: 5px;
+
+  color: #e87520;
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+
+/* =====================================================
+   RIGHT SIDE - 50%
+===================================================== */
+
+.tourup-signup-page .tourup-auth-right {
+  width: 50%;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+
+.tourup-signup-page .tourup-auth-right img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .tourup-signup-page .tourup-auth-left {
+    padding: 25px;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .tourup-signup-page {
+    height: 100vh;
+    min-height: 100vh;
+
+    flex-direction: column;
+
+    overflow: hidden;
+  }
+
+
+  .tourup-signup-page .tourup-auth-left {
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+
+    padding: 25px;
+
+    overflow: hidden;
+  }
+
+
+  .tourup-signup-page .tourup-auth-right {
+    display: none;
+  }
+
+
+  .tourup-signup-page .tourup-auth-form {
+    max-width: 420px;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+  .tourup-signup-page .tourup-auth-left {
+    padding: 18px;
+  }
+
+
+  .tourup-signup-page .tourup-auth-logo {
+    margin-bottom: 20px;
+
+    font-size: 24px;
+  }
+
+
+  .tourup-signup-page .tourup-auth-form h1 {
+    font-size: 27px;
+  }
+
+
+  .tourup-signup-page .tourup-input-group {
+    margin-bottom: 11px;
+  }
+
+
+  .tourup-signup-page .tourup-input-group input {
+    height: 42px;
+  }
+
+
+  .tourup-signup-page .tourup-auth-button {
+    height: 44px;
+  }
+
+}

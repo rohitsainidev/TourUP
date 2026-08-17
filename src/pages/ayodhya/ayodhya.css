@@ -1,0 +1,1056 @@
+/* =========================================================
+   AYODHYA PAGE
+   LUXURY / PREMIUM DESIGN
+   ALL CSS SCOPED
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+.ayodhya-page,
+.ayodhya-page * {
+  box-sizing: border-box;
+}
+
+.ayodhya-page {
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  background: #ffffff;
+  color: #222;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+.ayodhya-page img {
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.ayodhya-page .section-container {
+  width: 90%;
+  max-width: 1250px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.ayodhya-page .ayodhya-hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 720px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+
+/* HERO IMAGE */
+
+.ayodhya-page .hero-image {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 0;
+
+  transform: scale(1.02);
+}
+
+
+/* DARK LUXURY OVERLAY */
+
+.ayodhya-page .hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.62) 40%,
+      rgba(0, 0, 0, 0.25) 75%,
+      rgba(0, 0, 0, 0.12) 100%
+    );
+}
+
+
+/* HERO CONTENT */
+
+.ayodhya-page .hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 90%;
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  color: #ffffff;
+}
+
+
+/* HERO TAG */
+
+.ayodhya-page .hero-tag {
+  display: inline-block;
+
+  margin-bottom: 22px;
+
+  color: #d4af37;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 4px;
+}
+
+
+/* HERO TITLE */
+
+.ayodhya-page .ayodhya-hero h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(60px, 9vw, 115px);
+
+  line-height: 0.95;
+
+  letter-spacing: -5px;
+
+  font-weight: 800;
+}
+
+.ayodhya-page .ayodhya-hero h1 span {
+  color: #d4af37;
+}
+
+
+/* HERO TEXT */
+
+.ayodhya-page .ayodhya-hero .hero-content p {
+  max-width: 500px;
+
+  margin: 30px 0;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 17px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.ayodhya-page .hero-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px 27px;
+
+  border: 1px solid #d4af37;
+  border-radius: 30px;
+
+  background: #d4af37;
+
+  color: #151515;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.ayodhya-page .hero-button:hover {
+  transform: translateY(-4px);
+
+  background: #e7c65c;
+
+  box-shadow:
+    0 12px 30px rgba(212, 175, 55, 0.25);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.ayodhya-page .ayodhya-intro {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+
+  align-items: center;
+
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+
+/* INTRO IMAGE */
+
+.ayodhya-page .intro-image {
+  position: relative;
+
+  width: 100%;
+  height: 570px;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+}
+
+.ayodhya-page .intro-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+}
+
+.ayodhya-page .intro-image:hover img {
+  transform: scale(1.05);
+}
+
+
+/* IMAGE BADGE */
+
+.ayodhya-page .image-badge {
+  position: absolute;
+
+  left: 25px;
+  bottom: 25px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 16px 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+
+  background: rgba(0, 0, 0, 0.62);
+
+  backdrop-filter: blur(12px);
+
+  color: #ffffff;
+}
+
+.ayodhya-page .image-badge strong {
+  font-size: 19px;
+}
+
+.ayodhya-page .image-badge span {
+  margin-top: 4px;
+
+  color: #dddddd;
+
+  font-size: 11px;
+}
+
+
+/* INTRO CONTENT */
+
+.ayodhya-page .intro-content {
+  width: 100%;
+}
+
+
+/* LABEL */
+
+.ayodhya-page .section-label {
+  display: inline-block;
+
+  color: #a47625;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 3px;
+}
+
+
+/* INTRO HEADING */
+
+.ayodhya-page .intro-content h2 {
+  margin: 15px 0 25px;
+
+  color: #222;
+
+  font-size: clamp(40px, 5vw, 62px);
+
+  line-height: 1.08;
+
+  letter-spacing: -3px;
+}
+
+.ayodhya-page .intro-content h2 span {
+  color: #a47625;
+}
+
+
+/* INTRO PARAGRAPH */
+
+.ayodhya-page .intro-content p {
+  margin: 0 0 20px;
+
+  color: #666;
+
+  font-size: 16px;
+
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.ayodhya-page .intro-highlights {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 20px;
+
+  margin-top: 40px;
+
+  padding-top: 28px;
+
+  border-top: 1px solid #dedbd4;
+}
+
+.ayodhya-page .intro-highlights > div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.ayodhya-page .intro-highlights strong {
+  color: #222;
+
+  font-size: 29px;
+
+  font-weight: 800;
+}
+
+.ayodhya-page .intro-highlights span {
+  color: #888;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   PLACES SECTION
+========================================================= */
+
+.ayodhya-page .places-section {
+  width: 100%;
+
+  padding: 120px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8f5ef,
+      #f2eee6
+    );
+}
+
+
+/* SECTION HEADING */
+
+.ayodhya-page .section-heading {
+  display: flex;
+
+  align-items: end;
+  justify-content: space-between;
+
+  gap: 50px;
+
+  margin-bottom: 60px;
+}
+
+.ayodhya-page .section-heading h2 {
+  margin: 15px 0 0;
+
+  color: #222;
+
+  font-size: clamp(40px, 5vw, 60px);
+
+  line-height: 1.1;
+
+  letter-spacing: -3px;
+}
+
+.ayodhya-page .section-heading h2 span {
+  color: #a47625;
+}
+
+.ayodhya-page .section-heading > p {
+  max-width: 430px;
+
+  margin: 0;
+
+  color: #777;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   PLACES GRID
+========================================================= */
+
+.ayodhya-page .places-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 28px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.ayodhya-page .place-card {
+  overflow: hidden;
+
+  border: 1px solid #e1ddd5;
+  border-radius: 22px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.04);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.ayodhya-page .place-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.12);
+}
+
+
+/* CARD IMAGE */
+
+.ayodhya-page .place-image {
+  position: relative;
+
+  width: 100%;
+  height: 270px;
+
+  overflow: hidden;
+}
+
+.ayodhya-page .place-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.ayodhya-page .place-card:hover .place-image img {
+  transform: scale(1.07);
+}
+
+
+/* NUMBER */
+
+.ayodhya-page .place-number {
+  position: absolute;
+
+  top: 16px;
+  left: 16px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  backdrop-filter: blur(8px);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.ayodhya-page .place-content {
+  padding: 25px;
+}
+
+
+/* LOCATION */
+
+.ayodhya-page .place-location {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #a47625;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* CARD TITLE */
+
+.ayodhya-page .place-content h3 {
+  margin: 0 0 13px;
+
+  color: #222;
+
+  font-size: 23px;
+
+  font-weight: 800;
+}
+
+
+/* DESCRIPTION */
+
+.ayodhya-page .place-content p {
+  position: relative;
+
+  display: -webkit-box;
+
+  margin: 0 0 17px;
+
+  overflow: hidden;
+
+  color: #666;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+
+  -webkit-line-clamp: 2;
+
+  line-clamp: 2;
+
+  -webkit-box-orient: vertical;
+}
+
+.ayodhya-page .place-content p.expanded {
+  display: block;
+
+  overflow: visible;
+
+  -webkit-line-clamp: unset;
+
+  line-clamp: unset;
+}
+
+
+/* READ MORE */
+
+.ayodhya-page .read-more-btn {
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #222;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: color 0.3s ease;
+}
+
+.ayodhya-page .read-more-btn:hover {
+  color: #a47625;
+}
+
+
+/* =========================================================
+   SARYU SECTION
+========================================================= */
+
+.ayodhya-page .saryu-section {
+  width: 90%;
+  max-width: 1250px;
+
+  margin: 120px auto;
+
+  display: grid;
+
+  grid-template-columns:
+    1.15fr
+    0.85fr;
+
+  align-items: center;
+
+  gap: 80px;
+}
+
+
+/* IMAGE */
+
+.ayodhya-page .saryu-image {
+  width: 100%;
+  height: 510px;
+
+  overflow: hidden;
+
+  border-radius: 25px;
+}
+
+.ayodhya-page .saryu-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+}
+
+.ayodhya-page .saryu-image:hover img {
+  transform: scale(1.05);
+}
+
+
+/* CONTENT */
+
+.ayodhya-page .saryu-content h2 {
+  margin: 15px 0 25px;
+
+  color: #222;
+
+  font-size: clamp(40px, 5vw, 60px);
+
+  line-height: 1.08;
+
+  letter-spacing: -3px;
+}
+
+.ayodhya-page .saryu-content h2 span {
+  color: #a47625;
+}
+
+.ayodhya-page .saryu-content p {
+  max-width: 500px;
+
+  margin: 0;
+
+  color: #666;
+
+  font-size: 16px;
+
+  line-height: 1.9;
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.ayodhya-page .final-cta {
+  width: 90%;
+  max-width: 1250px;
+
+  margin: 0 auto 110px;
+
+  padding: 120px 30px;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #181818,
+      #292929
+    );
+
+  text-align: center;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.15);
+}
+
+
+/* CTA CONTENT */
+
+.ayodhya-page .final-cta-content {
+  max-width: 750px;
+
+  margin: 0 auto;
+}
+
+
+/* CTA LABEL */
+
+.ayodhya-page .final-cta .section-label {
+  color: #d4af37;
+}
+
+
+/* CTA HEADING */
+
+.ayodhya-page .final-cta h2 {
+  margin: 18px 0;
+
+  color: #ffffff;
+
+  font-size: clamp(45px, 6vw, 70px);
+
+  line-height: 1.08;
+
+  letter-spacing: -3px;
+}
+
+.ayodhya-page .final-cta h2 span {
+  color: #d4af37;
+}
+
+
+/* CTA TEXT */
+
+.ayodhya-page .final-cta p {
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  color: #d2d2d2;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+
+/* CTA BUTTON */
+
+.ayodhya-page .final-cta .hero-button {
+  margin-top: 30px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .ayodhya-page .ayodhya-intro {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .ayodhya-page .intro-image {
+    height: 520px;
+  }
+
+  .ayodhya-page .places-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .ayodhya-page .saryu-section {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+  .ayodhya-page .saryu-image {
+    height: 470px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .ayodhya-page .section-container {
+    width: 92%;
+  }
+
+
+  /* HERO */
+
+  .ayodhya-page .ayodhya-hero {
+    min-height: 650px;
+  }
+
+  .ayodhya-page .hero-content {
+    width: 92%;
+  }
+
+  .ayodhya-page .hero-tag {
+    font-size: 9px;
+
+    letter-spacing: 2.5px;
+  }
+
+  .ayodhya-page .ayodhya-hero h1 {
+    font-size: 58px;
+
+    letter-spacing: -3px;
+  }
+
+  .ayodhya-page .ayodhya-hero .hero-content p {
+    max-width: 100%;
+
+    font-size: 15px;
+  }
+
+
+  /* INTRO */
+
+  .ayodhya-page .ayodhya-intro {
+    width: 92%;
+
+    padding-top: 75px;
+    padding-bottom: 75px;
+
+    gap: 45px;
+  }
+
+  .ayodhya-page .intro-image {
+    height: 390px;
+
+    border-radius: 19px;
+  }
+
+  .ayodhya-page .intro-content h2 {
+    font-size: 38px;
+
+    letter-spacing: -2px;
+  }
+
+  .ayodhya-page .intro-content p {
+    font-size: 15px;
+  }
+
+  .ayodhya-page .intro-highlights {
+    gap: 10px;
+  }
+
+  .ayodhya-page .intro-highlights strong {
+    font-size: 23px;
+  }
+
+
+  /* PLACES */
+
+  .ayodhya-page .places-section {
+    padding: 80px 0;
+  }
+
+  .ayodhya-page .section-heading {
+    display: block;
+
+    margin-bottom: 40px;
+  }
+
+  .ayodhya-page .section-heading h2 {
+    font-size: 38px;
+
+    letter-spacing: -2px;
+  }
+
+  .ayodhya-page .section-heading > p {
+    margin-top: 18px;
+
+    font-size: 14px;
+  }
+
+  .ayodhya-page .places-grid {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+  }
+
+  .ayodhya-page .place-image {
+    height: 245px;
+  }
+
+
+  /* SARYU */
+
+  .ayodhya-page .saryu-section {
+    width: 92%;
+
+    margin: 80px auto;
+
+    gap: 45px;
+  }
+
+  .ayodhya-page .saryu-image {
+    height: 360px;
+
+    border-radius: 19px;
+  }
+
+  .ayodhya-page .saryu-content h2 {
+    font-size: 38px;
+
+    letter-spacing: -2px;
+  }
+
+  .ayodhya-page .saryu-content p {
+    font-size: 15px;
+  }
+
+
+  /* CTA */
+
+  .ayodhya-page .final-cta {
+    width: 92%;
+
+    margin-bottom: 65px;
+
+    padding: 80px 20px;
+
+    border-radius: 22px;
+  }
+
+  .ayodhya-page .final-cta h2 {
+    font-size: 42px;
+
+    letter-spacing: -2px;
+  }
+
+  .ayodhya-page .final-cta p {
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .ayodhya-page .ayodhya-hero h1 {
+    font-size: 50px;
+  }
+
+  .ayodhya-page .intro-content h2,
+  .ayodhya-page .section-heading h2,
+  .ayodhya-page .saryu-content h2 {
+    font-size: 33px;
+  }
+
+  .ayodhya-page .intro-highlights strong {
+    font-size: 20px;
+  }
+
+  .ayodhya-page .final-cta h2 {
+    font-size: 35px;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .ayodhya-page *,
+  .ayodhya-page *::before,
+  .ayodhya-page *::after {
+
+    scroll-behavior: auto !important;
+
+    transition: none !important;
+
+    animation: none !important;
+  }
+
+}

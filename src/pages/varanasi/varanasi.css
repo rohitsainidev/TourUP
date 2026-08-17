@@ -1,0 +1,1415 @@
+/* =========================================================
+   TOURUP - VARANASI PAGE
+   ALL CSS IS SCOPED TO .varanasi-page
+========================================================= */
+
+.varanasi-page,
+.varanasi-page * {
+  box-sizing: border-box;
+}
+
+.varanasi-page {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  margin: 0;
+  padding: 0;
+
+  background: #f7f4ed;
+  color: #242424;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.varanasi-page .varanasi-section-container {
+  width: 84%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.varanasi-page .gold-label {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: #a77b27;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.varanasi-page .section-number {
+  color: #a77b27;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.varanasi-page .varanasi-hero {
+  position: relative;
+
+  min-height: 88vh;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  color: #fff;
+
+  background-image: url("https://images.unsplash.com/photo-1561361058-c24cecae35ca?auto=format&fit=crop&w=2200&q=90");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.varanasi-page .varanasi-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.78) 0%,
+      rgba(0, 0, 0, 0.53) 42%,
+      rgba(0, 0, 0, 0.20) 100%
+    );
+}
+
+.varanasi-page .varanasi-hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: 84%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  text-align: left;
+}
+
+.varanasi-page .hero-tag {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #e4c47c;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 5px;
+}
+
+.varanasi-page .hero-line {
+  width: 55px;
+  height: 1px;
+
+  margin-bottom: 22px;
+
+  background: #d0a84e;
+}
+
+.varanasi-page .varanasi-hero h1 {
+  margin: 0;
+
+  color: #fff;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(62px, 8vw, 108px);
+  font-weight: 400;
+
+  line-height: 0.92;
+  letter-spacing: -3px;
+
+  text-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+.varanasi-page .varanasi-hero-content p {
+  max-width: 520px;
+
+  margin: 25px 0 0;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.varanasi-page .hero-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 28px;
+  padding: 12px 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 40px;
+
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  backdrop-filter: blur(5px);
+
+  transition: 0.3s ease;
+}
+
+.varanasi-page .hero-button span {
+  font-size: 17px;
+}
+
+.varanasi-page .hero-button:hover {
+  background: #fff;
+  color: #222;
+
+  transform: translateY(-2px);
+}
+
+.varanasi-page .hero-scroll {
+  position: absolute;
+
+  left: 8%;
+  bottom: 25px;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.varanasi-page .hero-scroll span {
+  width: 35px;
+  height: 1px;
+
+  background: #fff;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.varanasi-page .varanasi-intro {
+  padding: 110px 0;
+}
+
+.varanasi-page .intro-label {
+  margin-bottom: 55px;
+
+  color: #a77b27;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.varanasi-page .intro-label span {
+  margin-right: 18px;
+}
+
+.varanasi-page .intro-grid {
+  display: grid;
+
+  grid-template-columns: 1.05fr 0.95fr;
+
+  gap: 80px;
+}
+
+.varanasi-page .intro-heading h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(44px, 5.5vw, 72px);
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+}
+
+.varanasi-page .intro-heading h2 span {
+  color: #a77b27;
+}
+
+.varanasi-page .intro-description {
+  padding-top: 5px;
+}
+
+.varanasi-page .intro-description p {
+  margin: 0 0 20px;
+
+  color: #6d6a63;
+
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.varanasi-page .read-more-content {
+  animation: varanasiReadMore 0.3s ease;
+}
+
+@keyframes varanasiReadMore {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.varanasi-page .read-more-btn {
+  margin-top: 5px;
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #a77b27;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   GANGA
+========================================================= */
+
+.varanasi-page .ganga-section {
+  display: grid;
+
+  grid-template-columns: 1.15fr 0.85fr;
+
+  background: #171717;
+
+  color: #fff;
+}
+
+.varanasi-page .ganga-image {
+  min-height: 620px;
+}
+
+.varanasi-page .ganga-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.varanasi-page .ganga-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 70px;
+}
+
+.varanasi-page .ganga-content h2 {
+  margin: 0 0 22px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.varanasi-page .ganga-content h2 em {
+  color: #c49a43;
+  font-style: normal;
+}
+
+.varanasi-page .ganga-content p {
+  max-width: 500px;
+
+  color: #aaa;
+
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.varanasi-page .ganga-stats {
+  display: flex;
+  gap: 40px;
+
+  margin-top: 28px;
+  padding-top: 23px;
+
+  border-top: 1px solid #333;
+}
+
+.varanasi-page .ganga-stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.varanasi-page .ganga-stats strong {
+  color: #c49a43;
+
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.varanasi-page .ganga-stats span {
+  color: #888;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   GHATS
+========================================================= */
+
+.varanasi-page .ghats-section {
+  position: relative;
+
+  padding: 100px 0;
+
+  background: #eee9df;
+}
+
+.varanasi-page .ghats-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 60px;
+
+  margin-bottom: 45px;
+}
+
+.varanasi-page .ghats-title {
+  display: flex;
+  gap: 24px;
+}
+
+.varanasi-page .ghats-title .section-number {
+  padding-top: 5px;
+}
+
+.varanasi-page .ghats-title h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(42px, 5vw, 66px);
+  font-weight: 400;
+
+  line-height: 0.95;
+}
+
+.varanasi-page .ghats-title h2 em {
+  color: #a77b27;
+  font-style: normal;
+}
+
+.varanasi-page .ghats-intro {
+  max-width: 390px;
+
+  margin: 0;
+
+  color: #6f6b64;
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.varanasi-page .ghats-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+.varanasi-page .ghat-card {
+  display: grid;
+
+  grid-template-columns: 40% 60%;
+
+  min-height: 210px;
+
+  overflow: hidden;
+
+  background: #f8f5ee;
+
+  border: 1px solid #e1dbd0;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.varanasi-page .ghat-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 18px 40px rgba(40, 35, 25, 0.1);
+}
+
+.varanasi-page .ghat-image {
+  position: relative;
+
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.varanasi-page .ghat-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.varanasi-page .ghat-card:hover .ghat-image img {
+  transform: scale(1.07);
+}
+
+.varanasi-page .ghat-number {
+  position: absolute;
+
+  top: 12px;
+  left: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  color: #8e6823;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.varanasi-page .ghat-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 25px 27px;
+}
+
+.varanasi-page .ghat-location {
+  margin-bottom: 8px;
+
+  color: #a77b27;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+}
+
+.varanasi-page .ghat-content h3 {
+  margin: 0 0 9px;
+
+  color: #252525;
+
+  font-size: 21px;
+  font-weight: 500;
+
+  line-height: 1.15;
+}
+
+.varanasi-page .ghat-content p {
+  max-width: 330px;
+
+  margin: 0;
+
+  color: #77736b;
+
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.varanasi-page .ghat-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  width: fit-content;
+
+  margin-top: 13px;
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #9b7326;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.varanasi-page .ghat-link span {
+  font-size: 15px;
+
+  transition: transform 0.25s ease;
+}
+
+.varanasi-page .ghat-link:hover span {
+  transform: translateX(5px);
+}
+
+.varanasi-page .ghats-footer {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 38px;
+}
+
+.varanasi-page .view-all-ghats {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 22px;
+
+  border: 1px solid #b8ad9b;
+  border-radius: 50px;
+
+  background: transparent;
+
+  color: #4d4942;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.varanasi-page .view-all-ghats span {
+  color: #a77b27;
+
+  font-size: 16px;
+
+  transition: transform 0.25s ease;
+}
+
+.varanasi-page .view-all-ghats:hover {
+  background: #242424;
+
+  border-color: #242424;
+
+  color: #fff;
+}
+
+.varanasi-page .view-all-ghats:hover span {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.varanasi-page .ghat-modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background: rgba(0, 0, 0, 0.72);
+
+  backdrop-filter: blur(5px);
+
+  animation: varanasiModalFade 0.25s ease;
+}
+
+@keyframes varanasiModalFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.varanasi-page .ghat-modal-box {
+  position: relative;
+
+  width: 100%;
+  max-width: 850px;
+
+  max-height: 90vh;
+
+  overflow: hidden;
+
+  background: #f8f5ee;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35);
+
+  animation: varanasiModalUp 0.3s ease;
+}
+
+@keyframes varanasiModalUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.varanasi-page .ghat-modal-box > img {
+  width: 100%;
+  height: 330px;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.varanasi-page .ghat-modal-content {
+  padding: 35px 40px 40px;
+}
+
+.varanasi-page .ghat-modal-content > span {
+  color: #a77b27;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.varanasi-page .ghat-modal-content h2 {
+  margin: 10px 0 15px;
+
+  color: #252525;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.varanasi-page .ghat-modal-content p {
+  max-width: 700px;
+
+  margin: 0;
+
+  color: #6f6b64;
+
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.varanasi-page .ghat-close {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  z-index: 5;
+
+  width: 38px;
+  height: 38px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  color: #fff;
+
+  font-size: 25px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.varanasi-page .ghat-close:hover {
+  background: #fff;
+  color: #222;
+}
+
+
+/* =========================================================
+   CULTURE
+========================================================= */
+
+.varanasi-page .culture-section {
+  padding: 110px 0;
+
+  background: #f7f4ed;
+}
+
+.varanasi-page .culture-header {
+  max-width: 700px;
+
+  margin-bottom: 60px;
+}
+
+.varanasi-page .culture-header h2 {
+  margin: 0 0 22px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(43px, 5.5vw, 72px);
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.varanasi-page .culture-header h2 em {
+  color: #a77b27;
+  font-style: normal;
+}
+
+.varanasi-page .culture-header p {
+  max-width: 550px;
+
+  margin: 0;
+
+  color: #6d6a63;
+
+  line-height: 1.8;
+}
+
+.varanasi-page .culture-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 15px;
+}
+
+.varanasi-page .culture-card {
+  position: relative;
+
+  min-height: 300px;
+
+  padding: 30px;
+
+  background: #eee9df;
+
+  transition: 0.3s ease;
+}
+
+.varanasi-page .culture-card:hover {
+  transform: translateY(-5px);
+}
+
+.varanasi-page .culture-card > span {
+  color: #a77b27;
+
+  font-size: 12px;
+}
+
+.varanasi-page .culture-card h3 {
+  margin: 65px 0 15px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.varanasi-page .culture-card p {
+  margin: 0;
+
+  color: #706c65;
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.varanasi-page .culture-arrow {
+  position: absolute;
+
+  right: 25px;
+  bottom: 25px;
+
+  color: #a77b27;
+
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   FOOD
+========================================================= */
+
+.varanasi-page .food-section {
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  background: #eee9df;
+}
+
+.varanasi-page .food-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 75px;
+}
+
+.varanasi-page .food-content h2 {
+  margin: 0 0 22px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(43px, 5vw, 68px);
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.varanasi-page .food-content h2 em {
+  color: #a77b27;
+  font-style: normal;
+}
+
+.varanasi-page .food-content > p {
+  max-width: 520px;
+
+  margin: 0;
+
+  color: #6d6a63;
+
+  line-height: 1.9;
+}
+
+.varanasi-page .food-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-top: 28px;
+}
+
+.varanasi-page .food-list span {
+  padding: 9px 15px;
+
+  border: 1px solid #d0c8bb;
+  border-radius: 30px;
+
+  color: #5e5a53;
+
+  font-size: 11px;
+}
+
+.varanasi-page .food-image {
+  min-height: 580px;
+}
+
+.varanasi-page .food-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.varanasi-page .experience-section {
+  padding: 110px 0;
+
+  background: #171717;
+
+  color: #fff;
+}
+
+.varanasi-page .experience-heading {
+  margin-bottom: 60px;
+}
+
+.varanasi-page .experience-heading h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(43px, 5.5vw, 72px);
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.varanasi-page .experience-heading h2 em {
+  color: #c49a43;
+  font-style: normal;
+}
+
+.varanasi-page .experience-list {
+  max-width: 1000px;
+}
+
+.varanasi-page .experience-row {
+  display: grid;
+
+  grid-template-columns: 50px 1fr 30px;
+
+  gap: 25px;
+
+  padding: 28px 0;
+
+  border-top: 1px solid #333;
+}
+
+.varanasi-page .experience-row:last-child {
+  border-bottom: 1px solid #333;
+}
+
+.varanasi-page .experience-row > span {
+  color: #c49a43;
+
+  font-size: 12px;
+}
+
+.varanasi-page .experience-row h3 {
+  margin: 0 0 8px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.varanasi-page .experience-row p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #999;
+
+  line-height: 1.7;
+}
+
+.varanasi-page .experience-row b {
+  color: #c49a43;
+}
+
+
+/* =========================================================
+   TRAVEL
+========================================================= */
+
+.varanasi-page .travel-section {
+  padding: 110px 0;
+
+  background: #eee9df;
+}
+
+.varanasi-page .section-heading-row {
+  display: flex;
+  gap: 25px;
+
+  margin-bottom: 55px;
+}
+
+.varanasi-page .section-heading-row h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(43px, 5vw, 68px);
+  font-weight: 400;
+
+  line-height: 0.95;
+}
+
+.varanasi-page .section-heading-row h2 em {
+  color: #a77b27;
+  font-style: normal;
+}
+
+.varanasi-page .travel-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.varanasi-page .travel-card {
+  min-height: 270px;
+
+  padding: 32px;
+
+  background: #f8f5ee;
+}
+
+.varanasi-page .travel-card > span {
+  color: #a77b27;
+
+  font-size: 12px;
+}
+
+.varanasi-page .travel-card h3 {
+  margin: 50px 0 15px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.varanasi-page .travel-card p {
+  margin: 0;
+
+  color: #6d6a63;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.varanasi-page .varanasi-final {
+  position: relative;
+
+  min-height: 600px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  color: #fff;
+
+  background-image: url("https://images.unsplash.com/photo-1561361058-c24cecae35ca?auto=format&fit=crop&w=2200&q=90");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.varanasi-page .final-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.78)
+    );
+}
+
+.varanasi-page .final-content {
+  position: relative;
+  z-index: 2;
+}
+
+.varanasi-page .final-content > span {
+  color: #c49a43;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.varanasi-page .final-content h2 {
+  margin: 22px 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(58px, 8vw, 105px);
+  font-weight: 400;
+
+  line-height: 0.85;
+}
+
+.varanasi-page .final-content h2 em {
+  color: #c49a43;
+  font-style: normal;
+}
+
+.varanasi-page .final-content p {
+  color: #ddd;
+
+  line-height: 1.8;
+}
+
+.varanasi-page .final-content a {
+  display: inline-block;
+
+  margin-top: 22px;
+  padding: 12px 23px;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 30px;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  transition: 0.3s ease;
+}
+
+.varanasi-page .final-content a:hover {
+  background: #fff;
+  color: #222;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .varanasi-page .intro-grid {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .varanasi-page .ganga-section {
+    grid-template-columns: 1fr;
+  }
+
+  .varanasi-page .ganga-image {
+    min-height: 500px;
+  }
+
+  .varanasi-page .culture-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .varanasi-page .food-section {
+    grid-template-columns: 1fr;
+  }
+
+  .varanasi-page .food-image {
+    min-height: 500px;
+  }
+
+  .varanasi-page .travel-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .varanasi-page .varanasi-section-container {
+    width: 88%;
+  }
+
+  .varanasi-page .varanasi-hero {
+    min-height: 82vh;
+  }
+
+  .varanasi-page .varanasi-hero-content {
+    width: 88%;
+  }
+
+  .varanasi-page .varanasi-hero h1 {
+    font-size: 64px;
+    letter-spacing: -2px;
+  }
+
+  .varanasi-page .varanasi-hero-content p {
+    max-width: 390px;
+
+    font-size: 14px;
+  }
+
+  .varanasi-page .hero-scroll {
+    left: 6%;
+  }
+
+  .varanasi-page .varanasi-intro,
+  .varanasi-page .ghats-section,
+  .varanasi-page .culture-section,
+  .varanasi-page .experience-section,
+  .varanasi-page .travel-section {
+    padding: 75px 0;
+  }
+
+  .varanasi-page .intro-grid {
+    gap: 35px;
+  }
+
+  .varanasi-page .intro-heading h2 {
+    font-size: 44px;
+  }
+
+  .varanasi-page .ganga-content,
+  .varanasi-page .food-content {
+    padding: 55px 8%;
+  }
+
+  .varanasi-page .ganga-image,
+  .varanasi-page .food-image {
+    min-height: 400px;
+  }
+
+  .varanasi-page .ganga-stats {
+    gap: 20px;
+  }
+
+  .varanasi-page .ganga-stats strong {
+    font-size: 21px;
+  }
+
+  .varanasi-page .ghats-top {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .varanasi-page .ghats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .varanasi-page .ghat-card {
+    grid-template-columns: 38% 62%;
+
+    min-height: 175px;
+  }
+
+  .varanasi-page .ghat-content {
+    padding: 18px;
+  }
+
+  .varanasi-page .ghat-content h3 {
+    font-size: 17px;
+  }
+
+  .varanasi-page .ghat-content p {
+    font-size: 10.5px;
+  }
+
+  .varanasi-page .ghat-modal {
+    padding: 15px;
+  }
+
+  .varanasi-page .ghat-modal-box {
+    max-height: 92vh;
+  }
+
+  .varanasi-page .ghat-modal-box > img {
+    height: 220px;
+  }
+
+  .varanasi-page .ghat-modal-content {
+    padding: 25px;
+  }
+
+  .varanasi-page .ghat-modal-content h2 {
+    font-size: 28px;
+  }
+
+  .varanasi-page .culture-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .varanasi-page .culture-card {
+    min-height: 250px;
+  }
+
+  .varanasi-page .experience-row {
+    grid-template-columns: 35px 1fr;
+
+    gap: 15px;
+  }
+
+  .varanasi-page .experience-row b {
+    display: none;
+  }
+
+  .varanasi-page .section-heading-row {
+    gap: 15px;
+  }
+
+  .varanasi-page .varanasi-final {
+    min-height: 520px;
+  }
+
+  .varanasi-page .final-content h2 {
+    font-size: 65px;
+  }
+
+}

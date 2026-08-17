@@ -1,0 +1,603 @@
+/* =========================================================
+   TOURUP PREMIUM FOOTER
+========================================================= */
+
+.footer {
+  position: relative;
+
+  width: 100%;
+  min-height: 600px;
+
+  padding: 85px 7% 25px;
+
+  color: #ffffff;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   DARK OVERLAY
+========================================================= */
+
+.footer-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 10, 10, 0.96),
+      rgba(10, 10, 10, 0.82),
+      rgba(10, 10, 10, 0.78)
+    );
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   TOP GOLD LINE
+========================================================= */
+
+.footer::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 7%;
+  right: 7%;
+
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #d6ad55,
+    transparent
+  );
+
+  opacity: 0.8;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.footer-container {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 1300px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    1.5fr
+    1fr
+    1fr
+    1.2fr;
+
+  gap: 60px;
+
+  padding-bottom: 65px;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-brand {
+  max-width: 330px;
+}
+
+
+/* LOGO */
+
+.footer-logo {
+  margin-bottom: 22px;
+
+  color: #ffffff;
+
+  font-size: 42px;
+
+  font-weight: 800;
+
+  letter-spacing: -2px;
+}
+
+.footer-logo span {
+  color: #d8ae55;
+}
+
+
+/* BRAND TEXT */
+
+.brand-text {
+  margin: 0;
+
+  max-width: 320px;
+
+  color: #cfcfcf;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+
+/* GOLD LINE */
+
+.footer-line {
+  width: 55px;
+
+  height: 2px;
+
+  margin: 25px 0 15px;
+
+  background: #d8ae55;
+}
+
+
+/* EXPLORE TEXT */
+
+.explore-text {
+  margin: 0;
+
+  color: #d8ae55;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   FOOTER BOX
+========================================================= */
+
+.footer-box {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+
+/* HEADINGS */
+
+.footer-box h3 {
+  position: relative;
+
+  margin: 4px 0 25px;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+
+/* GOLD UNDERLINE */
+
+.footer-box h3::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -9px;
+
+  width: 30px;
+  height: 2px;
+
+  background: #d8ae55;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.footer-box a {
+  position: relative;
+
+  width: fit-content;
+
+  margin-bottom: 13px;
+
+  color: #c7c7c7;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* LINK ARROW */
+
+.footer-box a::before {
+  content: "→";
+
+  position: absolute;
+
+  left: -18px;
+
+  color: #d8ae55;
+
+  opacity: 0;
+
+  transition: 0.3s ease;
+}
+
+
+/* HOVER */
+
+.footer-box a:hover {
+  color: #d8ae55;
+
+  transform: translateX(6px);
+}
+
+.footer-box a:hover::before {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-box p {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin: 0 0 15px;
+
+  color: #c7c7c7;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+.contact-icon {
+  color: #d8ae55;
+
+  font-size: 14px;
+
+  min-width: 18px;
+}
+
+
+/* =========================================================
+   MIDDLE SECTION
+========================================================= */
+
+.footer-middle {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 1300px;
+
+  margin: 0 auto;
+
+  padding: 30px 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+/* MIDDLE CONTENT */
+
+.middle-content {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+
+/* TITLE */
+
+.middle-content h4 {
+  margin: 0 0 7px;
+
+  color: #ffffff;
+
+  font-size: 18px;
+
+  font-weight: 700;
+}
+
+
+/* TEXT */
+
+.middle-content p {
+  margin: 0;
+
+  color: #a9a9a9;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   EXPLORE BUTTON
+========================================================= */
+
+.footer-explore-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 12px 20px;
+
+  border: 1px solid rgba(216, 174, 85, 0.7);
+
+  border-radius: 30px;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  transition: 0.3s ease;
+}
+
+
+.footer-explore-btn span {
+  color: #d8ae55;
+
+  font-size: 18px;
+
+  transition: 0.3s ease;
+}
+
+
+.footer-explore-btn:hover {
+  background: #d8ae55;
+
+  color: #111;
+
+  transform: translateY(-2px);
+}
+
+
+.footer-explore-btn:hover span {
+  color: #111;
+
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.footer-bottom {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 1300px;
+
+  margin: auto;
+
+  padding-top: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+/* COPYRIGHT */
+
+.footer-bottom p {
+  margin: 0;
+
+  color: #858585;
+
+  font-size: 11px;
+}
+
+.footer-bottom strong {
+  color: #d8ae55;
+}
+
+
+/* BOTTOM LINKS */
+
+.footer-bottom-links {
+  display: flex;
+
+  gap: 25px;
+}
+
+.footer-bottom-links a {
+  color: #858585;
+
+  text-decoration: none;
+
+  font-size: 11px;
+
+  transition: 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+  color: #d8ae55;
+}
+
+
+/* =========================================================
+   HOVER GLOW
+========================================================= */
+
+.footer:hover {
+  box-shadow:
+    0 -10px 45px rgba(216, 174, 85, 0.08);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .footer {
+    padding: 70px 5% 25px;
+  }
+
+  .footer-container {
+    grid-template-columns:
+      1.5fr
+      1fr
+      1fr;
+
+    gap: 45px;
+  }
+
+  .footer-brand {
+    grid-column: span 3;
+    max-width: 500px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .footer {
+    padding: 65px 25px 25px;
+
+    min-height: auto;
+  }
+
+
+  .footer-container {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+    padding-bottom: 45px;
+  }
+
+
+  .footer-brand {
+    grid-column: auto;
+
+    max-width: 100%;
+  }
+
+
+  .footer-logo {
+    font-size: 36px;
+  }
+
+
+  .footer-box h3 {
+    margin-bottom: 22px;
+  }
+
+
+  .footer-middle {
+    padding: 25px 0;
+  }
+
+
+  .middle-content {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+
+  .footer-explore-btn {
+    margin-top: 5px;
+  }
+
+
+  .footer-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding-top: 22px;
+  }
+
+
+  .footer-bottom-links {
+    gap: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .footer-logo {
+    font-size: 32px;
+  }
+
+  .brand-text {
+    font-size: 13px;
+  }
+
+}

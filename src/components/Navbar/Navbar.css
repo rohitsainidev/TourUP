@@ -1,0 +1,800 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+.navbar,
+.navbar * {
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  width: 100%;
+
+  background: rgba(255, 243, 224, 0.96);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255, 152, 0, 0.12);
+
+  box-shadow:
+    0 4px 25px rgba(0, 0, 0, 0.07);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.nav-container {
+  width: min(1400px, 100%);
+
+  height: 72px;
+
+  margin: 0 auto;
+
+  padding: 0 28px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  text-decoration: none;
+
+  flex-shrink: 0;
+
+  transition: transform 0.25s ease;
+}
+
+.logo:hover {
+  transform: translateY(-1px);
+}
+
+.logo-icon {
+  color: #ff9800;
+
+  font-size: 30px;
+
+  line-height: 1;
+
+  animation: logoSpin 20s linear infinite;
+}
+
+@keyframes logoSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logo-text {
+  color: #333;
+
+  font-size: 28px;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+}
+
+.logo-highlight {
+  color: #ff9800;
+}
+
+
+/* =====================================================
+   NAV LINKS
+===================================================== */
+
+.nav-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+
+/* =====================================================
+   NORMAL NAV ITEM
+===================================================== */
+
+.nav-item {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 14px;
+
+  border-radius: 10px;
+
+  color: #555;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.nav-item:hover {
+  background: #ff9800;
+
+  color: #fff;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 18px rgba(255, 152, 0, 0.25);
+}
+
+.nav-icon {
+  font-size: 15px;
+
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   PLACES DROPDOWN
+===================================================== */
+
+.dropdown {
+  position: relative;
+}
+
+
+/* DROPDOWN BUTTON */
+
+.dropdown-toggle {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 10px 14px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #555;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* ONLY WHEN OPEN OR HOVERED */
+
+.dropdown-toggle:hover,
+.dropdown-open > .dropdown-toggle {
+  background: #ff9800;
+
+  color: #fff;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 18px rgba(255, 152, 0, 0.25);
+}
+
+
+/* ARROW */
+
+.dropdown-arrow {
+  font-size: 10px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.dropdown-arrow.rotate {
+  transform: rotate(180deg);
+}
+
+
+/* =====================================================
+   DROPDOWN MENU
+===================================================== */
+
+.dropdown-menu {
+  position: absolute;
+
+  top: calc(100% + 10px);
+
+  left: 50%;
+
+  width: 210px;
+
+  padding: 8px;
+
+  border: 1px solid rgba(255, 152, 0, 0.12);
+
+  border-radius: 14px;
+
+  background: #fff;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.14);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transform:
+    translate(-50%, -8px);
+
+  transition:
+    opacity 0.22s ease,
+    visibility 0.22s ease,
+    transform 0.22s ease;
+}
+
+
+/* IMPORTANT:
+   NO HOVER CONTROL HERE.
+   React controls .show
+*/
+
+.dropdown-menu.show {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transform:
+    translate(-50%, 0);
+}
+
+
+/* =====================================================
+   DROPDOWN LINKS
+===================================================== */
+
+.dropdown-menu a {
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  min-height: 44px;
+
+  padding: 11px 14px;
+
+  border-radius: 9px;
+
+  color: #555;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background: #fff1df;
+
+  color: #ff8a00;
+
+  transform: translateX(4px);
+}
+
+
+/* =====================================================
+   AUTH BUTTONS
+===================================================== */
+
+.auth-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-left: 8px;
+}
+
+.btn {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 40px;
+
+  padding: 8px 17px;
+
+  border-radius: 24px;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* LOGIN */
+
+.btn-login {
+  border: 1.5px solid #ff9800;
+
+  color: #ff9800;
+
+  background: transparent;
+}
+
+.btn-login:hover {
+  background: #ff9800;
+
+  color: #fff;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 18px rgba(255, 152, 0, 0.25);
+}
+
+
+/* SIGNUP */
+
+.btn-signup {
+  border: 1.5px solid #ff9800;
+
+  color: #fff;
+
+  background: #ff9800;
+}
+
+.btn-signup:hover {
+  background: #f57c00;
+
+  border-color: #f57c00;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 18px rgba(255, 152, 0, 0.3);
+}
+
+
+/* =====================================================
+   HAMBURGER
+===================================================== */
+
+.hamburger {
+  display: none;
+
+  width: 42px;
+
+  height: 42px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #333;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.hamburger:hover {
+  background: #fff0dd;
+
+  color: #ff9800;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1150px) {
+
+  .nav-container {
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    gap: 2px;
+  }
+
+  .nav-item,
+  .dropdown-toggle {
+    padding: 9px 10px;
+
+    font-size: 13px;
+  }
+
+  .auth-buttons {
+    margin-left: 3px;
+
+    gap: 5px;
+  }
+
+  .btn {
+    padding: 8px 13px;
+
+    font-size: 12px;
+  }
+
+  .logo-text {
+    font-size: 25px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 850px) {
+
+  .nav-container {
+    height: 68px;
+
+    padding: 0 18px;
+  }
+
+  .hamburger {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+  }
+
+
+  /* MOBILE NAV */
+
+  .nav-links {
+    position: fixed;
+
+    top: 68px;
+
+    left: 0;
+
+    width: 100%;
+
+    height: calc(100vh - 68px);
+
+    padding: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 6px;
+
+    background:
+      rgba(255, 248, 239, 0.98);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    transform: translateX(100%);
+
+    transition:
+      transform 0.3s ease;
+
+    box-shadow:
+      -10px 0 30px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+
+  /* NAV ITEMS */
+
+  .nav-item,
+  .dropdown-toggle {
+    width: 100%;
+
+    min-height: 48px;
+
+    justify-content: flex-start;
+
+    padding: 13px 16px;
+
+    border-radius: 11px;
+
+    font-size: 15px;
+  }
+
+
+  /* PLACES */
+
+  .dropdown {
+    width: 100%;
+  }
+
+  .dropdown-toggle {
+    justify-content: flex-start;
+  }
+
+  .dropdown-arrow {
+    margin-left: auto;
+  }
+
+
+  /* MOBILE DROPDOWN */
+
+  .dropdown-menu {
+    position: static;
+
+    width: 100%;
+
+    max-height: 0;
+
+    margin: 4px 0 0;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: rgba(255, 152, 0, 0.06);
+
+    box-shadow: none;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    transform: none;
+
+    transition:
+      max-height 0.3s ease,
+      opacity 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+  .dropdown-menu.show {
+    max-height: 260px;
+
+    padding: 5px;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform: none;
+  }
+
+  .dropdown-menu a {
+    min-height: 44px;
+
+    padding: 11px 16px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+  }
+
+  .dropdown-menu a:hover {
+    background: #ff9800;
+
+    color: #fff;
+
+    transform: none;
+  }
+
+
+  /* AUTH */
+
+  .auth-buttons {
+    width: 100%;
+
+    margin: 10px 0 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+  }
+
+  .btn {
+    width: 100%;
+
+    min-height: 48px;
+
+    font-size: 14px;
+  }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .nav-container {
+    height: 62px;
+
+    padding: 0 15px;
+  }
+
+  .logo {
+    gap: 7px;
+  }
+
+  .logo-icon {
+    font-size: 24px;
+  }
+
+  .logo-text {
+    font-size: 22px;
+  }
+
+  .hamburger {
+    width: 40px;
+
+    height: 40px;
+
+    font-size: 20px;
+  }
+
+  .nav-links {
+    top: 62px;
+
+    height: calc(100vh - 62px);
+
+    padding: 15px;
+  }
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+.nav-item:focus-visible,
+.dropdown-toggle:focus-visible,
+.dropdown-menu a:focus-visible,
+.btn:focus-visible,
+.hamburger:focus-visible {
+  outline: 2px solid #ff9800;
+
+  outline-offset: 2px;
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .logo-icon {
+    animation: none;
+  }
+
+  .nav-item,
+  .dropdown-toggle,
+  .dropdown-menu,
+  .dropdown-arrow,
+  .nav-links,
+  .btn {
+    transition: none;
+  }
+}
