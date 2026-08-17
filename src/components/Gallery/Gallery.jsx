@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import tajmahal from "../../assets/tajmahal.jpg";
-import varanasi from "../../assets/varanasi.jpg";
-import ayodhya from "../../assets/ayodhya.jpg";
-import lucknow from "../../assets/lucknow.jpg";
+import varanasi from "../../assets/Varanasi.jpg";
+import ayodhya from "../../assets/Ayodhya.jpg";
+import lucknow from "../../assets/Lucknow.jpg";
 
 function Gallery() {
   const navigate = useNavigate();
