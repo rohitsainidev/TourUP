@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Signup.css";
-
+import logoImg from "../../assets/logo-transparent.png";
 import tourismImage from "../Login/tourism.jpg";
 
 const Signup = () => {
@@ -56,10 +56,9 @@ const Signup = () => {
         <div className="tourup-auth-form">
 
           {/* LOGO */}
-          <div className="tourup-auth-logo">
-            <span>🧭</span>
-            <span>TourUP</span>
-          </div>
+          <Link to="/" className="tourup-auth-logo" title="Back to TourUP Home">
+            <img src={logoImg} alt="TourUP Logo" className="tourup-auth-logo-img" />
+          </Link>
 
 
           {/* HEADING */}

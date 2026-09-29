@@ -1,603 +1,331 @@
 /* =========================================================
-   TOURUP PREMIUM FOOTER
+   TOURUP FOOTER - Fully Transparent, Clear Image & Crisp Text
 ========================================================= */
 
 .footer {
   position: relative;
-
   width: 100%;
-  min-height: 600px;
-
-  padding: 85px 7% 25px;
-
-  color: #ffffff;
-
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
-
+  color: #ffffff;
+  padding: 85px 24px 28px 24px;
   overflow: hidden;
-
-  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-
-/* =========================================================
-   DARK OVERLAY
-========================================================= */
-
+/* BALANCED FULL-BLEED OVERLAY (IMAGE IS CLEAR & TEXT IS CRISP) */
 .footer-overlay {
   position: absolute;
-
   inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(10, 10, 10, 0.96),
-      rgba(10, 10, 10, 0.82),
-      rgba(10, 10, 10, 0.78)
-    );
-
-  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 12, 22, 0.75) 0%,
+    rgba(8, 12, 22, 0.58) 45%,
+    rgba(8, 12, 22, 0.82) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
 }
 
-
-/* =========================================================
-   TOP GOLD LINE
-========================================================= */
-
-.footer::after {
-  content: "";
-
+/* TOP GLOWING ACCENT LINE */
+.footer-top-accent {
   position: absolute;
-
   top: 0;
-  left: 7%;
-  right: 7%;
-
-  height: 1px;
-
+  left: 0;
+  right: 0;
+  height: 2px;
   background: linear-gradient(
     90deg,
-    transparent,
-    #d6ad55,
-    transparent
+    transparent 0%,
+    rgba(255, 167, 38, 0.4) 20%,
+    #ffa726 50%,
+    rgba(255, 167, 38, 0.4) 80%,
+    transparent 100%
   );
-
-  opacity: 0.8;
+  box-shadow: 0 0 10px rgba(255, 167, 38, 0.5);
+  z-index: 3;
 }
 
-
 /* =========================================================
-   MAIN CONTAINER
+   TRANSPARENT MAIN CONTAINER (NO BOX, FULLY OPEN)
 ========================================================= */
-
 .footer-container {
   position: relative;
-
   z-index: 2;
-
-  max-width: 1300px;
-
-  margin: auto;
-
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
   display: grid;
-
-  grid-template-columns:
-    1.5fr
-    1fr
-    1fr
-    1.2fr;
-
-  gap: 60px;
-
-  padding-bottom: 65px;
+  grid-template-columns: 1.4fr 1fr 1fr 1.15fr;
+  gap: 48px;
+  padding-bottom: 55px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
-
-/* =========================================================
-   BRAND
-========================================================= */
-
-.footer-brand {
-  max-width: 330px;
+/* =========================
+   COL 1: BRAND
+========================= */
+.footer-col.brand-col {
+  display: flex;
+  flex-direction: column;
 }
-
-
-/* LOGO */
 
 .footer-logo {
-  margin-bottom: 22px;
-
-  color: #ffffff;
-
-  font-size: 42px;
-
+  font-size: 2.2rem;
   font-weight: 800;
-
-  letter-spacing: -2px;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+  line-height: 1;
+  text-shadow: none;
 }
 
 .footer-logo span {
-  color: #d8ae55;
+  color: #ffa726;
 }
 
-
-/* BRAND TEXT */
-
-.brand-text {
-  margin: 0;
-
+.brand-desc {
+  font-size: 0.93rem;
+  line-height: 1.75;
+  color: #e2e8f0;
+  font-weight: 400;
+  margin: 0 0 24px 0;
   max-width: 320px;
-
-  color: #cfcfcf;
-
-  font-size: 14px;
-
-  line-height: 1.8;
+  text-shadow: none;
 }
 
-
-/* GOLD LINE */
-
-.footer-line {
-  width: 55px;
-
-  height: 2px;
-
-  margin: 25px 0 15px;
-
-  background: #d8ae55;
-}
-
-
-/* EXPLORE TEXT */
-
-.explore-text {
-  margin: 0;
-
-  color: #d8ae55;
-
-  font-size: 11px;
-
-  font-weight: 700;
-
-  letter-spacing: 2px;
-}
-
-
-/* =========================================================
-   FOOTER BOX
-========================================================= */
-
-.footer-box {
+.footer-socials {
   display: flex;
-
-  flex-direction: column;
-
-  align-items: flex-start;
+  align-items: center;
+  gap: 12px;
 }
 
-
-/* HEADINGS */
-
-.footer-box h3 {
-  position: relative;
-
-  margin: 4px 0 25px;
-
+.footer-social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #ffffff;
-
-  font-size: 16px;
-
-  font-weight: 700;
-
-  letter-spacing: 1px;
+  font-size: 15px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.footer-social-btn:hover {
+  background: #ffa726;
+  color: #ffffff;
+  border-color: #ffa726;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 167, 38, 0.5);
+}
 
-/* GOLD UNDERLINE */
+/* =========================
+   COL TITLES & LISTS (CLEAN & SHARP)
+========================= */
+.footer-col-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.4px;
+  margin: 0 0 20px 0;
+  position: relative;
+  text-shadow: none;
+}
 
-.footer-box h3::after {
+.footer-col-title::after {
   content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: -9px;
-
-  width: 30px;
+  display: block;
+  width: 26px;
   height: 2px;
-
-  background: #d8ae55;
+  background: #ffa726;
+  margin-top: 8px;
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(255, 167, 38, 0.6);
 }
 
-
-/* =========================================================
-   LINKS
-========================================================= */
-
-.footer-box a {
-  position: relative;
-
-  width: fit-content;
-
-  margin-bottom: 13px;
-
-  color: #c7c7c7;
-
-  text-decoration: none;
-
-  font-size: 13px;
-
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease;
-}
-
-
-/* LINK ARROW */
-
-.footer-box a::before {
-  content: "→";
-
-  position: absolute;
-
-  left: -18px;
-
-  color: #d8ae55;
-
-  opacity: 0;
-
-  transition: 0.3s ease;
-}
-
-
-/* HOVER */
-
-.footer-box a:hover {
-  color: #d8ae55;
-
-  transform: translateX(6px);
-}
-
-.footer-box a:hover::before {
-  opacity: 1;
-}
-
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact-box p {
-  display: flex;
-
-  align-items: flex-start;
-
-  gap: 10px;
-
-  margin: 0 0 15px;
-
-  color: #c7c7c7;
-
-  font-size: 13px;
-
-  line-height: 1.6;
-}
-
-
-.contact-icon {
-  color: #d8ae55;
-
-  font-size: 14px;
-
-  min-width: 18px;
-}
-
-
-/* =========================================================
-   MIDDLE SECTION
-========================================================= */
-
-.footer-middle {
-  position: relative;
-
-  z-index: 2;
-
-  max-width: 1300px;
-
-  margin: 0 auto;
-
-  padding: 30px 0;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-
-/* MIDDLE CONTENT */
-
-.middle-content {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 30px;
-}
-
-
-/* TITLE */
-
-.middle-content h4 {
-  margin: 0 0 7px;
-
-  color: #ffffff;
-
-  font-size: 18px;
-
-  font-weight: 700;
-}
-
-
-/* TEXT */
-
-.middle-content p {
+.footer-links {
+  list-style: none;
+  padding: 0;
   margin: 0;
-
-  color: #a9a9a9;
-
-  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-
-/* =========================================================
-   EXPLORE BUTTON
-========================================================= */
-
-.footer-explore-btn {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 15px;
-
-  padding: 12px 20px;
-
-  border: 1px solid rgba(216, 174, 85, 0.7);
-
-  border-radius: 30px;
-
-  color: #ffffff;
-
+.footer-links a,
+.footer-nav-btn {
+  font-size: 0.92rem;
+  color: #e2e8f0;
+  font-weight: 400;
   text-decoration: none;
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  transition: 0.3s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  display: inline-block;
+  text-shadow: none;
+  transition: all 0.25s ease;
 }
 
-
-.footer-explore-btn span {
-  color: #d8ae55;
-
-  font-size: 18px;
-
-  transition: 0.3s ease;
-}
-
-
-.footer-explore-btn:hover {
-  background: #d8ae55;
-
-  color: #111;
-
-  transform: translateY(-2px);
-}
-
-
-.footer-explore-btn:hover span {
-  color: #111;
-
+.footer-links a:hover,
+.footer-nav-btn:hover {
+  color: #ffa726;
   transform: translateX(4px);
 }
 
+/* =========================
+   CONTACT LIST
+========================= */
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
-/* =========================================================
-   BOTTOM
-========================================================= */
+.footer-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.92rem;
+  color: #f1f5f9;
+  font-weight: 400;
+  text-decoration: none;
+  text-shadow: none;
+  transition: color 0.25s ease;
+}
 
+.footer-contact-row:not(.static):hover {
+  color: #ffa726;
+}
+
+.footer-contact-row .f-icon {
+  font-size: 15px;
+  color: #ffa726;
+  flex-shrink: 0;
+}
+
+/* =========================
+   BOTTOM BAR (CLEAN & TRANSPARENT)
+========================= */
 .footer-bottom {
   position: relative;
-
   z-index: 2;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 24px 0 0 0;
+  text-align: center;
+}
 
-  max-width: 1300px;
-
-  margin: auto;
-
-  padding-top: 25px;
-
+.footer-bottom-inner {
+  max-width: 1240px;
+  margin: 0 auto;
   display: flex;
-
   align-items: center;
-
-  justify-content: space-between;
-
-  gap: 20px;
+  justify-content: center;
 }
 
-
-/* COPYRIGHT */
-
-.footer-bottom p {
-  margin: 0;
-
-  color: #858585;
-
-  font-size: 11px;
+.footer-credit-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  line-height: 1.5;
+  text-shadow: none;
 }
 
-.footer-bottom strong {
-  color: #d8ae55;
+.pill-brand {
+  font-size: 0.92rem;
+  color: #e2e8f0;
+  font-weight: 400;
 }
 
-
-/* BOTTOM LINKS */
-
-.footer-bottom-links {
-  display: flex;
-
-  gap: 25px;
+.pill-brand strong {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: -0.2px;
 }
 
-.footer-bottom-links a {
-  color: #858585;
-
-  text-decoration: none;
-
-  font-size: 11px;
-
-  transition: 0.3s ease;
+.pill-brand strong span {
+  color: #ffa726;
 }
 
-.footer-bottom-links a:hover {
-  color: #d8ae55;
+.pill-sep {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
+  margin: 0 2px;
 }
 
-
-/* =========================================================
-   HOVER GLOW
-========================================================= */
-
-.footer:hover {
-  box-shadow:
-    0 -10px 45px rgba(216, 174, 85, 0.08);
+.pill-text {
+  font-size: 0.9rem;
+  color: #e2e8f0;
+  font-weight: 400;
 }
 
+.pill-heart {
+  color: #ef4444;
+  font-size: 14px;
+  filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.7));
+  animation: heartPulse 1.8s ease-in-out infinite;
+  display: inline-block;
+  margin: 0 1px;
+}
 
-/* =========================================================
-   TABLET
-========================================================= */
+.pill-author {
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: #ffa726;
+  letter-spacing: 0.4px;
+}
 
-@media (max-width: 1000px) {
-
-  .footer {
-    padding: 70px 5% 25px;
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(1);
   }
+  50% {
+    transform: scale(1.24);
+  }
+}
 
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 1024px) {
   .footer-container {
-    grid-template-columns:
-      1.5fr
-      1fr
-      1fr;
-
-    gap: 45px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
   }
-
-  .footer-brand {
-    grid-column: span 3;
-    max-width: 500px;
-  }
-
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 650px) {
-
+@media (max-width: 640px) {
   .footer {
-    padding: 65px 25px 25px;
-
-    min-height: auto;
+    padding: 60px 16px 20px 16px;
   }
-
 
   .footer-container {
     grid-template-columns: 1fr;
-
-    gap: 40px;
-
-    padding-bottom: 45px;
+    gap: 32px;
+    padding-bottom: 36px;
   }
 
-
-  .footer-brand {
-    grid-column: auto;
-
-    max-width: 100%;
+  .footer-credit-pill {
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.85rem;
   }
-
-
-  .footer-logo {
-    font-size: 36px;
-  }
-
-
-  .footer-box h3 {
-    margin-bottom: 22px;
-  }
-
-
-  .footer-middle {
-    padding: 25px 0;
-  }
-
-
-  .middle-content {
-    flex-direction: column;
-
-    align-items: flex-start;
-  }
-
-
-  .footer-explore-btn {
-    margin-top: 5px;
-  }
-
-
-  .footer-bottom {
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    padding-top: 22px;
-  }
-
-
-  .footer-bottom-links {
-    gap: 18px;
-  }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 400px) {
-
-  .footer {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .footer-logo {
-    font-size: 32px;
-  }
-
-  .brand-text {
-    font-size: 13px;
-  }
-
 }

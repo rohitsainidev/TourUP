@@ -67,54 +67,29 @@
 
 .logo {
   display: flex;
-
   align-items: center;
-
-  gap: 9px;
-
   text-decoration: none;
-
   flex-shrink: 0;
-
-  transition: transform 0.25s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+  user-select: none;
 }
 
 .logo:hover {
   transform: translateY(-1px);
+  filter: drop-shadow(0 4px 14px rgba(255, 140, 0, 0.28));
 }
 
-.logo-icon {
-  color: #ff9800;
-
-  font-size: 30px;
-
-  line-height: 1;
-
-  animation: logoSpin 20s linear infinite;
+.navbar-logo-img {
+  height: 46px;
+  width: auto;
+  max-width: 175px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.25s ease;
 }
 
-@keyframes logoSpin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.logo-text {
-  color: #333;
-
-  font-size: 28px;
-
-  font-weight: 800;
-
-  letter-spacing: -1px;
-}
-
-.logo-highlight {
-  color: #ff9800;
+.logo:hover .navbar-logo-img {
+  transform: scale(1.02);
 }
 
 
@@ -734,16 +709,9 @@
     padding: 0 15px;
   }
 
-  .logo {
-    gap: 7px;
-  }
-
-  .logo-icon {
-    font-size: 24px;
-  }
-
-  .logo-text {
-    font-size: 22px;
+  .navbar-logo-img {
+    height: 36px;
+    max-width: 140px;
   }
 
   .hamburger {

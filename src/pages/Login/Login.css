@@ -51,20 +51,24 @@
 ===================================================== */
 
 .tourup-login-page .tourup-auth-logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-
-  margin-bottom: 35px;
-
-  font-size: 28px;
-  font-weight: 800;
-
-  color: #e87520;
+  text-decoration: none;
+  margin-bottom: 28px;
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
 
-.tourup-login-page .tourup-auth-logo span:first-child {
-  font-size: 30px;
+.tourup-login-page .tourup-auth-logo:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 4px 14px rgba(255, 140, 0, 0.28));
+}
+
+.tourup-auth-logo-img {
+  height: 50px;
+  width: auto;
+  max-width: 190px;
+  object-fit: contain;
+  display: block;
 }
 
 

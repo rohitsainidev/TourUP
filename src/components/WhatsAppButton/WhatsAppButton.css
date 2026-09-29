@@ -1,0 +1,217 @@
+/* Official WhatsApp Floating Widget with Animations */
+
+.whatsapp-widget-wrap {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Tooltip Badge */
+.whatsapp-chip-tooltip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 9px 16px;
+  border-radius: 30px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(12px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.whatsapp-chip-tooltip.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.whatsapp-chip-tooltip:hover {
+  background: #1e293b;
+  color: #25d366;
+}
+
+/* Green Live Online Dot */
+.online-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #25d366;
+  box-shadow: 0 0 8px #25d366;
+  flex-shrink: 0;
+  animation: wa-online-pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes wa-online-pulse {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+    box-shadow: 0 0 4px #25d366;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+    box-shadow: 0 0 10px #25d366;
+  }
+}
+
+.tooltip-text {
+  letter-spacing: -0.2px;
+}
+
+/* Button Anchor Container */
+.whatsapp-btn-anchor {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: wa-floating-bounce 3.6s ease-in-out infinite;
+}
+
+.whatsapp-widget-wrap:hover .whatsapp-btn-anchor {
+  animation-play-state: paused;
+}
+
+/* Soft Emerald Radar Pulse Waves */
+.wa-radar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.35);
+  pointer-events: none;
+  z-index: 1;
+  animation: wa-radar-wave 3s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.wa-radar-2 {
+  animation-delay: 1.5s;
+}
+
+@keyframes wa-radar-wave {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+}
+
+/* Authentic WhatsApp Green Floating Button */
+.whatsapp-main-btn {
+  position: relative;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #2ae06f 0%, #20ba59 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45), 0 4px 10px rgba(0, 0, 0, 0.14);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  border: none;
+  outline: none;
+  user-select: none;
+}
+
+.whatsapp-main-btn:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 14px 34px rgba(37, 211, 102, 0.65), 0 6px 14px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+}
+
+.whatsapp-main-btn:active {
+  transform: scale(0.95);
+}
+
+
+
+/* SVG Icon with Ring/Wiggle Animation */
+.whatsapp-svg-icon {
+  width: 35px;
+  height: 35px;
+  fill: #ffffff;
+  display: block;
+  animation: wa-icon-wiggle 4.5s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+/* Periodic Ringing Phone Wiggle */
+@keyframes wa-icon-wiggle {
+  0%, 82%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  85% {
+    transform: rotate(-14deg) scale(1.08);
+  }
+  88% {
+    transform: rotate(14deg) scale(1.08);
+  }
+  91% {
+    transform: rotate(-10deg) scale(1.08);
+  }
+  94% {
+    transform: rotate(10deg) scale(1.08);
+  }
+  97% {
+    transform: rotate(-4deg) scale(1.04);
+  }
+}
+
+/* Gentle Floating Bounce */
+@keyframes wa-floating-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .whatsapp-widget-wrap {
+    bottom: 22px;
+    right: 20px;
+  }
+
+  .whatsapp-btn-anchor,
+  .whatsapp-main-btn,
+  .wa-radar {
+    width: 52px;
+    height: 52px;
+  }
+
+  .whatsapp-svg-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .whatsapp-chip-tooltip {
+    display: none;
+  }
+}

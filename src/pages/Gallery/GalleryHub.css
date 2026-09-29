@@ -1,0 +1,897 @@
+/* =====================================================
+   EDITORIAL UTTAR PRADESH PHOTOGRAPHY HUB - STYLING
+   Crafted with genuine travel publication & Unsplash aesthetics
+===================================================== */
+
+.unsplash-gallery-hub {
+  min-height: 100vh;
+  background: #fbfbfd;
+  color: #1a202c;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  padding-bottom: 90px;
+}
+
+/* =====================================================
+   1. EDITORIAL HERO (Authentic High-Resolution Background)
+===================================================== */
+
+.editorial-hero {
+  position: relative;
+  background-size: cover;
+  background-position: center 38%;
+  background-repeat: no-repeat;
+  padding: 105px 24px 75px;
+  color: #ffffff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.editorial-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.72) 0%,
+    rgba(15, 23, 42, 0.88) 65%,
+    rgba(15, 23, 42, 0.97) 100%
+  );
+  z-index: 1;
+}
+
+.editorial-hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.editorial-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editorial-tagline {
+  display: inline-block;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: #ffa726;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: 14px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.editorial-title {
+  font-size: clamp(2.3rem, 5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  color: #ffffff;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+.editorial-lead {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.65;
+  color: #e2e8f0;
+  max-width: 720px;
+  margin: 0 auto 34px;
+  font-weight: 400;
+}
+
+/* =====================================================
+   REAL UNSPLASH SEARCH INPUT
+===================================================== */
+
+.editorial-search-wrapper {
+  width: 100%;
+  max-width: 760px;
+}
+
+.editorial-search-bar {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 8px 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.25s ease;
+}
+
+.editorial-search-bar:focus-within {
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 0 3px rgba(255, 115, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.editorial-search-icon {
+  font-size: 1.25rem;
+  color: #64748b;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.editorial-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1.05rem;
+  color: #0f172a;
+  background: transparent;
+  padding: 8px 0;
+  font-family: inherit;
+}
+
+.editorial-search-input::placeholder {
+  color: #94a3b8;
+  font-size: 0.96rem;
+}
+
+.editorial-clear-btn {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editorial-clear-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* Trending Bar */
+.editorial-trending-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.trending-title {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.trending-chip {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f1f5f9;
+  font-size: 0.82rem;
+  padding: 5px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(6px);
+}
+
+.trending-chip:hover {
+  background: #ffffff;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+/* =====================================================
+   2. STICKY SUB-NAV TOOLBAR (Unsplash Minimalist Bar)
+===================================================== */
+
+.editorial-toolbar-sticky {
+  position: sticky;
+  top: 72px;
+  z-index: 90;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.editorial-toolbar-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.editorial-tabs-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 2px 0;
+}
+
+.editorial-tabs-list::-webkit-scrollbar {
+  display: none;
+}
+
+.editorial-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editorial-tab-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.editorial-tab-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.tab-icon {
+  font-size: 0.95rem;
+  color: #ff7300;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.editorial-tab-btn.active .tab-icon {
+  color: #ffa726;
+}
+
+/* View controls */
+.editorial-view-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 768px) {
+  .editorial-view-controls {
+    display: none;
+  }
+}
+
+.view-mode-btn {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-mode-btn:hover {
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+.view-mode-btn.active {
+  background: #ff7300;
+  border-color: #ff7300;
+  color: #ffffff;
+}
+
+/* =====================================================
+   4. STATUS BAR
+===================================================== */
+
+.editorial-status-bar {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 22px 24px 10px;
+}
+
+.editorial-status-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.editorial-status-text {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.status-count {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ff7300;
+  line-height: 1;
+}
+
+.status-desc {
+  font-size: 0.96rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.status-desc strong {
+  color: #0f172a;
+}
+
+.editorial-reset-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editorial-reset-action:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* =====================================================
+   5. EDITORIAL MASONRY GRID
+===================================================== */
+
+.editorial-gallery-main {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 10px 24px 40px;
+}
+
+.editorial-masonry-grid {
+  column-gap: 20px;
+}
+
+.editorial-masonry-grid.columns-3 {
+  column-count: 3;
+}
+
+.editorial-masonry-grid.columns-4 {
+  column-count: 4;
+}
+
+@media (max-width: 1100px) {
+  .editorial-masonry-grid.columns-3,
+  .editorial-masonry-grid.columns-4 {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .editorial-masonry-grid.columns-3,
+  .editorial-masonry-grid.columns-4 {
+    column-count: 1;
+  }
+}
+
+/* PHOTO CARD */
+.editorial-photo-card {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f1f5f9;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+}
+
+.editorial-photo-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+}
+
+.photo-media-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.photo-actual-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.editorial-photo-card:hover .photo-actual-img {
+  transform: scale(1.025);
+}
+
+/* UNSPLASH HOVER OVERLAY */
+.photo-hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0) 30%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(10, 15, 25, 0.88) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  color: #ffffff;
+}
+
+.editorial-photo-card:hover .photo-hover-overlay {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .photo-hover-overlay {
+    opacity: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0) 40%,
+      rgba(10, 15, 25, 0.85) 100%
+    );
+  }
+}
+
+/* Hover Top */
+.photo-hover-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.photo-destination-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f172a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.photo-destination-badge svg {
+  color: #ff7300;
+  font-size: 0.75rem;
+}
+
+.photo-quick-download-btn {
+  background: #ffffff;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.photo-quick-download-btn:hover {
+  background: #ff7300;
+  color: #ffffff;
+}
+
+/* Hover Bottom */
+.photo-hover-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.photo-info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.photo-title-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.photo-caption-text {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.photo-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.photo-guide-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #ffa726;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.photo-guide-link:hover {
+  color: #ffffff;
+}
+
+.photo-expand-icon-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.photo-expand-icon-btn:hover {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+/* =====================================================
+   6. EMPTY SEARCH STATE
+===================================================== */
+
+.editorial-empty-state {
+  text-align: center;
+  padding: 70px 24px;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  max-width: 580px;
+  margin: 30px auto;
+}
+
+.empty-state-graphic {
+  font-size: 2.5rem;
+  color: #94a3b8;
+  margin-bottom: 14px;
+}
+
+.editorial-empty-state h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.editorial-empty-state p {
+  color: #64748b;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  margin: 0 0 22px;
+}
+
+.empty-quick-pills {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.empty-pill-btn {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.empty-pill-btn:hover {
+  background: #ff7300;
+  border-color: #ff7300;
+  color: #ffffff;
+}
+
+.empty-restore-btn {
+  background: #0f172a;
+  border: none;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.empty-restore-btn:hover {
+  background: #ff7300;
+}
+
+/* =====================================================
+   7. LUXURY EDITORIAL LIGHTBOX MODAL (Ultra Clean & Minimal)
+===================================================== */
+
+.editorial-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(8, 12, 20, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.editorial-modal-card {
+  background: #0f172a;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 1060px;
+  width: 100%;
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
+  position: relative;
+}
+
+/* Modal Header - Ultra Clean */
+.modal-top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: #0f172a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.modal-header-meta {
+  display: flex;
+  align-items: center;
+}
+
+.modal-title-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal-title-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.modal-location-sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.82rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.modal-pin-icon {
+  color: #ff7300;
+  font-size: 0.8rem;
+}
+
+/* Modal Actions - Clean & Minimal */
+.modal-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-guide-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f1f5f9;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.modal-guide-action:hover {
+  background: #ffffff;
+  color: #0f172a;
+  border-color: #ffffff;
+}
+
+.modal-download-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #ff7300;
+  border: none;
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-download-action:hover {
+  background: #e66700;
+  transform: translateY(-1px);
+}
+
+.modal-close-action {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.modal-close-action:hover {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
+/* Stage - Seamless Dark Frame */
+.modal-photo-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #090e17;
+  max-height: 68vh;
+  padding: 16px;
+}
+
+.modal-display-img {
+  max-width: 100%;
+  max-height: 65vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Modal Bottom - Clean Typography */
+.modal-bottom-details {
+  padding: 14px 24px 18px;
+  background: #0f172a;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.modal-description-paragraph {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Arrows */
+.modal-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+
+.modal-nav-arrow:hover {
+  background: #ff7300;
+  border-color: #ff7300;
+}
+
+.modal-nav-arrow.prev {
+  left: 20px;
+}
+
+.modal-nav-arrow.next {
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .modal-nav-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+  .modal-nav-arrow.prev {
+    left: 8px;
+  }
+  .modal-nav-arrow.next {
+    right: 8px;
+  }
+}

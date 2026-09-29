@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import logoImg from "../../assets/logo-transparent.png";
 
 import {
   FaMapMarkerAlt,
@@ -16,30 +17,26 @@ import {
   FaGlobe,
 } from "react-icons/fa";
 
-const handleHomeClick = () => {
-  closeAll();
-
-  // URL se #gallery / #about / #contact remove karega
-  window.history.replaceState(null, "", "/");
-
-  // Home page ke top par le jayega
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: "smooth",
-  });
-};
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const dropdownRef = useRef(null);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  /* =========================
+     CLOSE EVERYTHING
+  ========================= */
+  const closeAll = () => {
+    setIsMenuOpen(false);
+    setIsDropdownOpen(false);
+  };
 
   /* =========================
      MOBILE MENU
   ========================= */
-
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
@@ -47,26 +44,11 @@ function Navbar() {
   /* =========================
      PLACES DROPDOWN
   ========================= */
-
   const toggleDropdown = (e) => {
     e.preventDefault();
     e.stopPropagation();
-
     setIsDropdownOpen((prev) => !prev);
   };
-
-  /* =========================
-     CLOSE EVERYTHING
-  ========================= */
-
-  const closeAll = () => {
-    setIsMenuOpen(false);
-    setIsDropdownOpen(false);
-  };
-
-  /* =========================
-     PLACE CLICK
-  ========================= */
 
   const handlePlaceClick = () => {
     setIsDropdownOpen(false);
@@ -74,9 +56,41 @@ function Navbar() {
   };
 
   /* =========================
-     OUTSIDE CLICK
+     SMOOTH SCROLL TO SECTION
   ========================= */
+  const handleNavScroll = (e, sectionId) => {
+    e.preventDefault();
+    closeAll();
 
+    const isHomeRoute =
+      location.pathname === "/" ||
+      location.pathname === "/home" ||
+      location.pathname === "/gallery" ||
+      location.pathname === "/about" ||
+      location.pathname === "/contact";
+
+    if (isHomeRoute) {
+      if (sectionId === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.history.replaceState(null, "", "/");
+        setActiveSection("home");
+      } else {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+          window.history.replaceState(null, "", `/#${sectionId}`);
+          setActiveSection(sectionId);
+        }
+      }
+    } else {
+      // If user is on a separate page like /agra, /varanasi, /gallery/tajmahal
+      navigate(`/#${sectionId}`, { state: { scrollTo: sectionId } });
+    }
+  };
+
+  /* =========================
+     OUTSIDE CLICK LISTENER
+  ========================= */
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (
@@ -88,35 +102,55 @@ function Navbar() {
     };
 
     document.addEventListener("mousedown", handleOutsideClick);
-
     return () => {
-      document.removeEventListener(
-        "mousedown",
-        handleOutsideClick
-      );
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, []);
 
   /* =========================
-     CLOSE ON ROUTE CHANGE
+     ACTIVE SECTION SCROLL SPY
   ========================= */
-
   useEffect(() => {
-    setIsDropdownOpen(false);
-    setIsMenuOpen(false);
+    const isHomeRoute =
+      location.pathname === "/" ||
+      location.pathname === "/home" ||
+      location.pathname === "/gallery" ||
+      location.pathname === "/about" ||
+      location.pathname === "/contact";
+
+    if (!isHomeRoute) {
+      setActiveSection("");
+      return;
+    }
+
+    const handleScroll = () => {
+      const sections = ["contact", "about", "gallery", "home"];
+      const scrollPos = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveSection(sectionId);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [location.pathname]);
 
   /* =========================
      LOCK BODY SCROLL ON MOBILE
   ========================= */
-
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
-
     return () => {
       document.body.style.overflow = "";
     };
@@ -127,21 +161,20 @@ function Navbar() {
       <div className="nav-container">
 
         {/* ================= LOGO ================= */}
-
-        <Link
-          to="/"
+        <a
+          href="#home"
           className="logo"
-          onClick={closeAll}
+          onClick={(e) => handleNavScroll(e, "home")}
+          aria-label="TourUP Homepage"
         >
-          <span className="logo-icon">✦</span>
-
-          <span className="logo-text">
-            Tour<span className="logo-highlight">UP</span>
-          </span>
-        </Link>
+          <img
+            src={logoImg}
+            alt="TourUP Logo"
+            className="navbar-logo-img"
+          />
+        </a>
 
         {/* ================= MOBILE BUTTON ================= */}
-
         <button
           type="button"
           className="hamburger"
@@ -153,35 +186,25 @@ function Navbar() {
         </button>
 
         {/* ================= NAVIGATION ================= */}
-
-        <ul
-          className={`nav-links ${
-            isMenuOpen ? "active" : ""
-          }`}
-        >
+        <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
 
           {/* HOME */}
-
-                        <li>
-                <Link
-                  to="/"
-                  className="nav-item"
-                  onClick={handleHomeClick}
-                >
-                  <FaHome className="nav-icon" />
-                  <span>Home</span>
-                </Link>
-              </li>
+          <li>
+            <a
+              href="#home"
+              className={`nav-item ${activeSection === "home" ? "active" : ""}`}
+              onClick={(e) => handleNavScroll(e, "home")}
+            >
+              <FaHome className="nav-icon" />
+              <span>Home</span>
+            </a>
+          </li>
 
           {/* ================= PLACES ================= */}
-
           <li
             ref={dropdownRef}
-            className={`dropdown ${
-              isDropdownOpen ? "dropdown-open" : ""
-            }`}
+            className={`dropdown ${isDropdownOpen ? "dropdown-open" : ""}`}
           >
-
             <button
               type="button"
               className="dropdown-toggle"
@@ -190,75 +213,45 @@ function Navbar() {
               aria-haspopup="true"
             >
               <FaGlobe className="nav-icon" />
-
               <span>Places</span>
-
               <FaChevronDown
-                className={`dropdown-arrow ${
-                  isDropdownOpen ? "rotate" : ""
-                }`}
+                className={`dropdown-arrow ${isDropdownOpen ? "rotate" : ""}`}
               />
             </button>
 
             {/* DROPDOWN */}
-
-            <div
-              className={`dropdown-menu ${
-                isDropdownOpen ? "show" : ""
-              }`}
-            >
-
-              <Link
-                to="/agra"
-                onClick={handlePlaceClick}
-              >
+            <div className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}>
+              <Link to="/agra" onClick={handlePlaceClick}>
                 <span>Agra</span>
               </Link>
-
-              <Link
-                to="/varanasi"
-                onClick={handlePlaceClick}
-              >
+              <Link to="/varanasi" onClick={handlePlaceClick}>
                 <span>Varanasi</span>
               </Link>
-
-              <Link
-                to="/ayodhya"
-                onClick={handlePlaceClick}
-              >
+              <Link to="/ayodhya" onClick={handlePlaceClick}>
                 <span>Ayodhya</span>
               </Link>
-
-              <Link
-                to="/lucknow"
-                onClick={handlePlaceClick}
-              >
+              <Link to="/lucknow" onClick={handlePlaceClick}>
                 <span>Lucknow</span>
               </Link>
-
             </div>
           </li>
-          
-          
 
           {/* ================= GALLERY ================= */}
-
           <li>
-            <a
-              href="#gallery"
-              className="nav-item"
+            <Link
+              to="/gallery"
+              className={`nav-item ${location.pathname.startsWith("/gallery") ? "active" : ""}`}
               onClick={closeAll}
             >
               <FaImage className="nav-icon" />
               <span>Gallery</span>
-            </a>
+            </Link>
           </li>
 
           {/* ================= MAP ================= */}
-
           <li>
             <a
-              href="https://www.google.com/maps"
+              href="https://www.google.com/maps/place/Uttar+Pradesh"
               target="_blank"
               rel="noopener noreferrer"
               className="nav-item"
@@ -270,12 +263,11 @@ function Navbar() {
           </li>
 
           {/* ================= ABOUT ================= */}
-
           <li>
             <a
               href="#about"
-              className="nav-item"
-              onClick={closeAll}
+              className={`nav-item ${activeSection === "about" ? "active" : ""}`}
+              onClick={(e) => handleNavScroll(e, "about")}
             >
               <FaInfoCircle className="nav-icon" />
               <span>About</span>
@@ -283,22 +275,19 @@ function Navbar() {
           </li>
 
           {/* ================= CONTACT ================= */}
-
           <li>
-                <Link
-                  to="/contact"
-                  className="nav-item"
-                  onClick={closeAll}
-                >
-                  <FaEnvelope className="nav-icon" />
-                  <span>Contact</span>
-                </Link>
-              </li>
+            <a
+              href="#contact"
+              className={`nav-item ${activeSection === "contact" ? "active" : ""}`}
+              onClick={(e) => handleNavScroll(e, "contact")}
+            >
+              <FaEnvelope className="nav-icon" />
+              <span>Contact</span>
+            </a>
+          </li>
 
           {/* ================= AUTH ================= */}
-
           <li className="auth-buttons">
-
             <Link
               to="/login"
               className="btn btn-login"
@@ -316,7 +305,6 @@ function Navbar() {
               <FaUserPlus className="nav-icon" />
               <span>Signup</span>
             </Link>
-
           </li>
 
         </ul>

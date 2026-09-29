@@ -1,481 +1,309 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import "./Contact.css";
 import FAQ from "./FAQ";
 
 import {
   FaPaperPlane,
-  FaMapMarkedAlt,
   FaEnvelope,
-  FaPhone,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
   FaClock,
   FaInstagram,
   FaFacebookF,
   FaTwitter,
   FaLinkedinIn,
+  FaCheckCircle,
+  FaHeadset,
 } from "react-icons/fa";
 
 function Contact() {
-  const [startCount, setStartCount] = useState(false);
-
-  const [stats, setStats] = useState({
-    destinations: 0,
-    travelers: 0,
-    rating: 0,
-    support: 0,
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    destination: "General Inquiry",
+    subject: "",
+    message: "",
   });
 
-  const statsRef = useRef(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  /* ================= COUNT ANIMATION ================= */
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setStartCount(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!startCount) return;
-
-    let destinations = 0;
-    let travelers = 0;
-    let rating = 0;
-    let support = 0;
-
-    const interval = setInterval(() => {
-      destinations += 10;
-      travelers += 200;
-      rating += 0.1;
-      support += 1;
-
-      if (destinations >= 500) destinations = 500;
-      if (travelers >= 10000) travelers = 10000;
-      if (rating >= 4.9) rating = 4.9;
-      if (support >= 24) support = 24;
-
-      setStats({
-        destinations,
-        travelers,
-        rating: Number(rating.toFixed(1)),
-        support,
+    // Simulate clean API response
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setFormData({
+        name: "",
+        email: "",
+        destination: "General Inquiry",
+        subject: "",
+        message: "",
       });
-
-      if (
-        destinations === 500 &&
-        travelers === 10000 &&
-        rating === 4.9 &&
-        support === 24
-      ) {
-        clearInterval(interval);
-      }
-    }, 25);
-
-    return () => clearInterval(interval);
-  }, [startCount]);
+    }, 700);
+  };
 
   return (
-  <div className="contact-page">
-      {/* ================= HERO ================= */}
+    <section className="contact-section-wrap" id="contact">
+      <div className="contact-container">
 
-      <section className="contact-hero">
-
-        <div className="contact-hero-overlay"></div>
-
-        <div className="contact-hero-content">
-
-          <span className="contact-tag">
-            TOURUP • CONTACT US
-          </span>
-
-          <h1>
-            Let's Talk About
-            <span> Your Journey</span>
-          </h1>
-
-          <p>
-            Have a question about a place or your trip?
-            Send us a message and we will be happy to help.
-          </p>
-
-          <div className="contact-hero-buttons">
-
-            <a href="#contact-form" className="contact-primary-btn">
-              <FaPaperPlane />
-              Send Message
-            </a>
-
-            <a href="#contact-info" className="contact-secondary-btn">
-              <FaMapMarkedAlt />
-              Contact Details
-            </a>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* ================= WHY TOURUP ================= */}
-
-      <section className="why-contact">
-
-        <div className="contact-section-heading">
-
-          <span>WHY TOURUP</span>
-
+        {/* ================= HEADER ================= */}
+        <motion.div
+          className="contact-header"
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span className="contact-badge">GET IN TOUCH</span>
           <h2>
-            We Are Here To Help
+            Plan Your Journey With <span>TourUP</span>
           </h2>
-
-          <p>
-            Planning a trip becomes easier when you have the right
-            information and support.
+          <p className="contact-lead">
+            Have questions about monuments, travel itineraries, city guides, or photo downloads?
+            Our Uttar Pradesh travel team is here to assist you anytime.
           </p>
+        </motion.div>
 
-        </div>
+        {/* ================= MAIN 2-COL CONTACT GRID ================= */}
+        <div className="contact-grid">
 
-
-        <div className="why-grid">
-
-          <div className="why-card">
-
-            <div className="why-icon">
-              ✈️
-            </div>
-
-            <h3>
-              Travel Help
-            </h3>
-
-            <p>
-              Get useful information about places and travel.
-            </p>
-
-          </div>
-
-
-          <div className="why-card">
-
-            <div className="why-icon">
-              💬
-            </div>
-
-            <h3>
-              Quick Support
-            </h3>
-
-            <p>
-              Ask your questions and get simple answers.
-            </p>
-
-          </div>
-
-
-          <div className="why-card">
-
-            <div className="why-icon">
-              📍
-            </div>
-
-            <h3>
-              Explore UP
-            </h3>
-
-            <p>
-              Discover famous places, culture and history.
-            </p>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* ================= STATS ================= */}
-
-      <section
-        className="stats-section"
-        ref={statsRef}
-      >
-
-        <div className="stats-container">
-
-          <div className="stat-card">
-            <h2>{stats.destinations}+</h2>
-            <p>Places</p>
-          </div>
-
-          <div className="stat-card">
-            <h2>
-              {stats.travelers.toLocaleString()}+
-            </h2>
-            <p>Travelers</p>
-          </div>
-
-          <div className="stat-card">
-            <h2>{stats.rating}★</h2>
-            <p>Rating</p>
-          </div>
-
-          <div className="stat-card">
-            <h2>{stats.support}/7</h2>
-            <p>Support</p>
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* ================= CONTACT AREA ================= */}
-
-      <section className="contact-section">
-
-        <div className="contact-container">
-
-
-          {/* ================= FORM ================= */}
-
-          <div
+          {/* LEFT: INTERACTIVE MESSAGE FORM */}
+          <motion.div
             className="contact-form-card"
-            id="contact-form"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
+            <div className="form-card-header">
+              <h3>Send Us a Message</h3>
+              <p>Fill out the form below and we will respond within 24 hours.</p>
+            </div>
 
-            <span className="form-label">
-              GET IN TOUCH
-            </span>
+            {isSubmitted && (
+              <motion.div
+                className="form-success-banner"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <FaCheckCircle className="success-icon" />
+                <div>
+                  <strong>Message Sent Successfully!</strong>
+                  <p>Thank you for reaching out. Our travel desk will contact you soon.</p>
+                </div>
+              </motion.div>
+            )}
 
-            <h2>
-              Send Us a Message
-            </h2>
+            <form onSubmit={handleSubmit} className="contact-form">
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="contact-name">Your Name</label>
+                  <input
+                    id="contact-name"
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="e.g. Rahul Sharma"
+                    required
+                  />
+                </div>
 
-            <p>
-              Have a question? Fill in the form below.
-            </p>
-
-
-            <form>
+                <div className="form-group">
+                  <label htmlFor="contact-email">Email Address</label>
+                  <input
+                    id="contact-email"
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="e.g. rahul@example.com"
+                    required
+                  />
+                </div>
+              </div>
 
               <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="contact-destination">Destination / Topic</label>
+                  <select
+                    id="contact-destination"
+                    name="destination"
+                    value={formData.destination}
+                    onChange={handleChange}
+                  >
+                    <option value="General Inquiry">General Travel Inquiry</option>
+                    <option value="Agra">Agra (Taj Mahal & Fort)</option>
+                    <option value="Varanasi">Varanasi (Ghats & Culture)</option>
+                    <option value="Ayodhya">Ayodhya (Ram Mandir & Heritage)</option>
+                    <option value="Lucknow">Lucknow (Awadh & Architecture)</option>
+                    <option value="Photo Gallery">Gallery & Photo Downloads</option>
+                  </select>
+                </div>
 
-                <div className="input-group">
-
-                  <label>
-                    Your Name
-                  </label>
-
+                <div className="form-group">
+                  <label htmlFor="contact-subject">Subject</label>
                   <input
+                    id="contact-subject"
                     type="text"
-                    placeholder="Enter your name"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="How can we help you?"
                     required
                   />
-
                 </div>
-
-
-                <div className="input-group">
-
-                  <label>
-                    Email
-                  </label>
-
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    required
-                  />
-
-                </div>
-
               </div>
 
-
-              <div className="input-group">
-
-                <label>
-                  Subject
-                </label>
-
-                <input
-                  type="text"
-                  placeholder="What do you want to ask?"
-                  required
-                />
-
-              </div>
-
-
-              <div className="input-group">
-
-                <label>
-                  Message
-                </label>
-
+              <div className="form-group">
+                <label htmlFor="contact-message">Message</label>
                 <textarea
-                  placeholder="Write your message..."
-                  rows="5"
+                  id="contact-message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Share details about your travel questions, suggestions, or itinerary..."
+                  rows="4"
                   required
                 ></textarea>
-
               </div>
-
 
               <button
                 type="submit"
-                className="send-btn"
+                className="contact-submit-btn"
+                disabled={isSubmitting}
               >
-                Send Message
-                <FaPaperPlane />
+                <span>{isSubmitting ? "Sending Message..." : "Send Message"}</span>
+                <FaPaperPlane className="btn-send-icon" />
               </button>
-
             </form>
+          </motion.div>
 
-          </div>
-
-
-          {/* ================= CONTACT INFO ================= */}
-
-          <div
+          {/* RIGHT: LUXURY INFO & SUPPORT CARD */}
+          <motion.div
             className="contact-info-card"
-            id="contact-info"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-
-            <span className="form-label">
-              CONTACT US
-            </span>
-
-            <h2>
-              Let's Connect
-            </h2>
-
-            <p className="info-intro">
-              We would love to hear from you.
-              Feel free to contact us anytime.
-            </p>
-
-
-            <div className="info-item">
-
-              <div className="info-icon">
-                <FaEnvelope />
-              </div>
-
-              <div>
-                <h4>Email</h4>
-                <p>
-                  support@tourup.com
-                </p>
-              </div>
-
+            <div className="info-card-header">
+              <span className="info-badge">
+                <FaHeadset /> DIRECT ASSISTANCE
+              </span>
+              <h3>TourUP Travel Desk</h3>
+              <p>Connect with our UP Tourism specialists for guidance and recommendations.</p>
             </div>
 
+            <div className="info-items-list">
+              <a href="mailto:support@tourup.com" className="info-item-link">
+                <div className="info-icon">
+                  <FaEnvelope />
+                </div>
+                <div className="info-content">
+                  <span className="info-label">Email Support</span>
+                  <span className="info-val">support@tourup.com</span>
+                </div>
+              </a>
 
-            <div className="info-item">
+              <a href="tel:+918008687870" className="info-item-link">
+                <div className="info-icon">
+                  <FaPhoneAlt />
+                </div>
+                <div className="info-content">
+                  <span className="info-label">Toll-Free Helpline</span>
+                  <span className="info-val">+91 800-868-7870</span>
+                </div>
+              </a>
 
-              <div className="info-icon">
-                <FaPhone />
+              <div className="info-item-static">
+                <div className="info-icon">
+                  <FaMapMarkerAlt />
+                </div>
+                <div className="info-content">
+                  <span className="info-label">Visitor Information Center</span>
+                  <span className="info-val">Hazratganj, Lucknow, Uttar Pradesh</span>
+                </div>
               </div>
 
-              <div>
-                <h4>Phone</h4>
-                <p>
-                  +91 XXXXX XXXXX
-                </p>
+              <div className="info-item-static">
+                <div className="info-icon">
+                  <FaClock />
+                </div>
+                <div className="info-content">
+                  <span className="info-label">Support Hours</span>
+                  <span className="info-val">Mon – Sat: 9:00 AM – 7:00 PM IST</span>
+                </div>
               </div>
-
             </div>
 
-
-            <div className="info-item">
-
-              <div className="info-icon">
-                <FaMapMarkedAlt />
-              </div>
-
-              <div>
-                <h4>Location</h4>
-                <p>
-                  Uttar Pradesh, India
-                </p>
-              </div>
-
+            {/* RESPONSE COMMITMENT */}
+            <div className="info-commitment-box">
+              <div className="commitment-indicator" />
+              <span>Average response time: <strong>under 2 hours</strong></span>
             </div>
 
-
-            <div className="info-item">
-
-              <div className="info-icon">
-                <FaClock />
-              </div>
-
-              <div>
-                <h4>Working Hours</h4>
-                <p>
-                  Monday - Saturday
-                </p>
-                <small>
-                  9:00 AM - 7:00 PM
-                </small>
-              </div>
-
-            </div>
-
-
-            {/* SOCIAL */}
-
-            <div className="social-area">
-
-              <h4>
-                Follow TourUP
-              </h4>
-
-              <div className="social-icons">
-
-                <a href="#facebook">
+            {/* SOCIAL COMMUNITY */}
+            <div className="info-social-wrap">
+              <span className="social-label">Follow Uttar Pradesh Tourism:</span>
+              <div className="info-social-links">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn"
+                  aria-label="Facebook"
+                >
                   <FaFacebookF />
                 </a>
-
-                <a href="#instagram">
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn"
+                  aria-label="Instagram"
+                >
                   <FaInstagram />
                 </a>
-
-                <a href="#twitter">
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn"
+                  aria-label="Twitter"
+                >
                   <FaTwitter />
                 </a>
-
-                <a href="#linkedin">
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn"
+                  aria-label="LinkedIn"
+                >
                   <FaLinkedinIn />
                 </a>
-
               </div>
-
             </div>
-
-          </div>
+          </motion.div>
 
         </div>
 
-      </section>
+      </div>
 
-
-      {/* ================= FAQ ================= */}
-
-          <FAQ />
-  </div>
+      {/* ================= ACCORDION FAQ ================= */}
+      <FAQ />
+    </section>
   );
 }
 

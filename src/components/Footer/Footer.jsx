@@ -1,137 +1,190 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Footer.css";
 
 import footerBimg from "../../assets/footer/footer-bimg.jpg";
 
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaInstagram,
+  FaFacebookF,
+  FaTwitter,
+  FaHeart,
+} from "react-icons/fa";
+
 function Footer() {
+  const navigate = useNavigate();
+
+  const handleNav = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", `/#${id}`);
+    } else {
+      navigate(`/#${id}`);
+    }
+  };
+
   return (
     <footer
       className="footer"
       style={{ backgroundImage: `url(${footerBimg})` }}
     >
-      {/* DARK OVERLAY */}
-      <div className="footer-overlay"></div>
+      {/* CINEMATIC LUXURY DARK OVERLAY */}
+      <div className="footer-overlay" />
+
+      {/* GLOWING TOP ACCENT BORDER */}
+      <div className="footer-top-accent" />
 
       <div className="footer-container">
 
-        {/* ================= BRAND ================= */}
-        <div className="footer-brand">
-
+        {/* 1. BRAND */}
+        <div className="footer-col brand-col">
           <div className="footer-logo">
             Tour<span>UP</span>
           </div>
 
-          <p className="brand-text">
-            Explore Uttar Pradesh with TourUP.
-            Find famous places, beautiful cities,
-            culture and history in one place.
+          <p className="brand-desc">
+            Your trusted digital companion to exploring the eternal ghats, legendary temples,
+            and royal cultural heritage of Uttar Pradesh.
           </p>
 
-          <div className="footer-line"></div>
-
-          <p className="explore-text">
-            Travel • Explore • Discover
-          </p>
-
-        </div>
-
-
-        {/* ================= QUICK LINKS ================= */}
-        <div className="footer-box">
-
-          <h3>Quick Links</h3>
-
-          <Link to="/">Home</Link>
-          <Link to="/places">Places</Link>
-          <Link to="/gallery">Gallery</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
-
-        </div>
-
-
-        {/* ================= POPULAR PLACES ================= */}
-        <div className="footer-box">
-
-          <h3>Popular Places</h3>
-
-          <Link to="/ayodhya">Ayodhya</Link>
-          <Link to="/varanasi">Varanasi</Link>
-          <Link to="/lucknow">Lucknow</Link>
-          <Link to="/agra">Agra</Link>
-
-          <a href="#places">More Places</a>
-
-        </div>
-
-
-        {/* ================= CONTACT ================= */}
-        <div className="footer-box contact-box">
-
-          <h3>Contact Us</h3>
-
-          <p>
-            <span className="contact-icon">📍</span>
-            Lucknow, Uttar Pradesh
-          </p>
-
-          <p>
-            <span className="contact-icon">☎</span>
-            +91 6397432030
-          </p>
-
-          <p>
-            <span className="contact-icon">✉</span>
-            rohitsaini123du@gmail.com
-          </p>
-
-        </div>
-
-      </div>
-
-
-      {/* ================= FOOTER MIDDLE ================= */}
-      <div className="footer-middle">
-
-        <div className="middle-content">
-
-          <div>
-            <h4>Discover Uttar Pradesh</h4>
-
-            <p>
-              Temples, history, culture and beautiful places
-              are waiting for you.
-            </p>
+          <div className="footer-socials">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="TourUP Instagram"
+              className="footer-social-btn"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="TourUP Facebook"
+              className="footer-social-btn"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="TourUP Twitter"
+              className="footer-social-btn"
+            >
+              <FaTwitter />
+            </a>
           </div>
+        </div>
 
-          <Link to="/places" className="footer-explore-btn">
-            Explore Places
-            <span>→</span>
-          </Link>
+        {/* 2. EXPLORE DESTINATIONS */}
+        <div className="footer-col">
+          <h4 className="footer-col-title">Explore Guides</h4>
+          <ul className="footer-links">
+            <li>
+              <Link to="/agra">Agra (Taj Mahal)</Link>
+            </li>
+            <li>
+              <Link to="/varanasi">Varanasi (Sacred Ghats)</Link>
+            </li>
+            <li>
+              <Link to="/ayodhya">Ayodhya (Ram Mandir)</Link>
+            </li>
+            <li>
+              <Link to="/lucknow">Lucknow (Awadh Heritage)</Link>
+            </li>
+            <li>
+              <Link to="/places">All Destinations</Link>
+            </li>
+          </ul>
+        </div>
 
+        {/* 3. QUICK NAVIGATION */}
+        <div className="footer-col">
+          <h4 className="footer-col-title">Quick Links</h4>
+          <ul className="footer-links">
+            <li>
+              <button
+                type="button"
+                className="footer-nav-btn"
+                onClick={() => handleNav("home")}
+              >
+                Home
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="footer-nav-btn"
+                onClick={() => handleNav("gallery")}
+              >
+                Curated Gallery
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="footer-nav-btn"
+                onClick={() => handleNav("about")}
+              >
+                About TourUP
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="footer-nav-btn"
+                onClick={() => handleNav("contact")}
+              >
+                Contact & Support
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        {/* 4. CONTACT / DESK */}
+        <div className="footer-col contact-col">
+          <h4 className="footer-col-title">Visitor Help Desk</h4>
+          <div className="footer-contact-list">
+            <div className="footer-contact-row static">
+              <FaMapMarkerAlt className="f-icon" />
+              <span>Hazratganj, Lucknow, UP</span>
+            </div>
+
+            <a href="tel:+918008687870" className="footer-contact-row">
+              <FaPhoneAlt className="f-icon" />
+              <span>+91 800-TOUR-UP</span>
+            </a>
+
+            <a href="mailto:support@tourup.com" className="footer-contact-row">
+              <FaEnvelope className="f-icon" />
+              <span>support@tourup.com</span>
+            </a>
+          </div>
         </div>
 
       </div>
 
-
-      {/* ================= BOTTOM ================= */}
+      {/* FOOTER BOTTOM BAR */}
       <div className="footer-bottom">
-
-        <div className="footer-bottom-left">
-          <p>
-            © 2026 <strong>TourUP</strong>. All Rights Reserved.
-          </p>
+        <div className="footer-bottom-inner">
+          <div className="footer-credit-pill">
+            <span className="pill-brand">
+              © {new Date().getFullYear()} <strong>Tour<span>UP</span></strong>
+            </span>
+            <span className="pill-sep">•</span>
+            <span className="pill-text">Made with</span>
+            <FaHeart className="pill-heart" />
+            <span className="pill-text">by</span>
+            <span className="pill-author">Rohit Saini</span>
+          </div>
         </div>
-
-        <div className="footer-bottom-links">
-          <a href="#home">Home</a>
-          <a href="#places">Places</a>
-          <a href="#contact">Contact</a>
-        </div>
-
       </div>
-
     </footer>
   );
 }
