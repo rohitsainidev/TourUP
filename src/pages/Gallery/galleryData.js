@@ -34,12 +34,12 @@ import scindiaGhat from "../varanasi/ScindiaGhat.jpg";
 import dashGhat from "../varanasi/dash.jpg";
 
 // --- AYODHYA ---
-import ayodhya1 from "../Ayodhya/ayodhya.jpg";
-import hanumangarhi from "../Ayodhya/Hanumangarhi.jpg";
-import sharyuGhat from "../Ayodhya/sharyuGhat.jpg";
-import kanakBhawan from "../Ayodhya/KanakBhawan.jpg";
-import dashrathMahal from "../Ayodhya/DashrathMahal.jpg";
-import ramkiPaidi from "../Ayodhya/RamkiPaidi.jpg";
+import ayodhya1 from "../ayodhya/ayodhya.jpg";
+import hanumangarhi from "../ayodhya/Hanumangarhi.jpg";
+import sharyuGhat from "../ayodhya/sharyuGhat.jpg";
+import kanakBhawan from "../ayodhya/KanakBhawan.jpg";
+import dashrathMahal from "../ayodhya/DashrathMahal.jpg";
+import ramkiPaidi from "../ayodhya/RamkiPaidi.jpg";
 
 // --- LUCKNOW ---
 import lucknow1 from "../lucknow/Lucknow.jpg";

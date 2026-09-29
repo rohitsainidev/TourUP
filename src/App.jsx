@@ -10,8 +10,6 @@ import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Places from "./components/Places/Places";
 import WhatsAppButton from "./components/WhatsAppButton/WhatsAppButton";
-
-import GalleryDetails from "./pages/Gallery/GalleryDetails";
 import GalleryHub from "./pages/Gallery/GalleryHub";
 import Agra from "./pages/Agra/Agra";
 import Varanasi from "./pages/varanasi/Varanasi";

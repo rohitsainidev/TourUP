@@ -27,12 +27,12 @@ import varanasi10 from "../../assets/gallery/varanasi/varanasi10.jpg";
 import varanasi11 from "../../assets/gallery/varanasi/varanasi11.jpg";
 
 // Ayodhya Images
-import ayodhya1 from "../Ayodhya/ayodhya.jpg";
-import ayodhya2 from "../Ayodhya/Hanumangarhi.jpg";
-import ayodhya3 from "../Ayodhya/sharyuGhat.jpg";
-import ayodhya4 from "../Ayodhya/KanakBhawan.jpg";
-import ayodhya5 from "../Ayodhya/DashrathMahal.jpg";
-import ayodhya6 from "../Ayodhya/RamkiPaidi.jpg";
+import ayodhya1 from "../ayodhya/ayodhya.jpg";
+import ayodhya2 from "../ayodhya/Hanumangarhi.jpg";
+import ayodhya3 from "../ayodhya/sharyuGhat.jpg";
+import ayodhya4 from "../ayodhya/KanakBhawan.jpg";
+import ayodhya5 from "../ayodhya/DashrathMahal.jpg";
+import ayodhya6 from "../ayodhya/RamkiPaidi.jpg";
 
 // Lucknow Images
 import lucknow1 from "../lucknow/Lucknow.jpg";
