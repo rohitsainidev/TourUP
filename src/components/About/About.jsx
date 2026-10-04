@@ -95,12 +95,12 @@ function About() {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="about-tag">ABOUT TOURUP</span>
+          <span className="about-tag">ABOUT UTTAR PRADESH UNVEILED</span>
           <h2>
             Discover the Heritage & Spirit of <span>Uttar Pradesh</span>
           </h2>
           <p className="about-lead">
-            TourUP is your dedicated travel companion across Uttar Pradesh — home to timeless
+            Uttar Pradesh Unveiled is your dedicated travel companion across Uttar Pradesh — home to timeless
             monuments, sacred riverfronts, and legendary cultural heritage. From the eternal ghats
             of Varanasi and the divine aura of Ayodhya, to the architectural poetry of the Taj Mahal
             and royal elegance of Lucknow, we make discovering UP seamless and inspiring.

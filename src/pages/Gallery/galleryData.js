@@ -30,7 +30,6 @@ import varanasi11 from "../../assets/gallery/varanasi/varanasi11.jpg";
 import assiGhat from "../varanasi/AssiGhat.jpg";
 import kedarGhat from "../varanasi/KedarGhat.jpg";
 import manikarnikaGhat from "../varanasi/ManikarnikaGhat.jpg";
-import scindiaGhat from "../varanasi/ScindiaGhat.jpg";
 import dashGhat from "../varanasi/dash.jpg";
 
 // --- AYODHYA ---

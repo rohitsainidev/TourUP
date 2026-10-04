@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import logoImg from "../../assets/logo-transparent.png";
+import logoImg from "../../assets/logo-mark.png";
 
 import {
   FaMapMarkerAlt,
@@ -165,13 +165,17 @@ function Navbar() {
           href="#home"
           className="logo"
           onClick={(e) => handleNavScroll(e, "home")}
-          aria-label="TourUP Homepage"
+          aria-label="Uttar Pradesh Unveiled Homepage"
         >
           <img
             src={logoImg}
-            alt="TourUP Logo"
+            alt="Uttar Pradesh Unveiled"
             className="navbar-logo-img"
           />
+          <div className="navbar-brand-text">
+            <span className="brand-title">UTTAR PRADESH</span>
+            <span className="brand-subtitle">UNVEILED</span>
+          </div>
         </a>
 
         {/* ================= MOBILE BUTTON ================= */}

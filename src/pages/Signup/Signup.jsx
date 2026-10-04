@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Signup.css";
-import logoImg from "../../assets/logo-transparent.png";
+import logoImg from "../../assets/logo-mark.png";
 import tourismImage from "../Login/tourism.jpg";
 
 const Signup = () => {
@@ -56,8 +56,12 @@ const Signup = () => {
         <div className="tourup-auth-form">
 
           {/* LOGO */}
-          <Link to="/" className="tourup-auth-logo" title="Back to TourUP Home">
-            <img src={logoImg} alt="TourUP Logo" className="tourup-auth-logo-img" />
+          <Link to="/" className="tourup-auth-logo" title="Back to Uttar Pradesh Unveiled">
+            <img src={logoImg} alt="Uttar Pradesh Unveiled" className="tourup-auth-logo-img" />
+            <div className="auth-brand-text">
+              <span className="auth-brand-title">UTTAR PRADESH</span>
+              <span className="auth-brand-subtitle">UNVEILED</span>
+            </div>
           </Link>
 
 
@@ -65,7 +69,7 @@ const Signup = () => {
           <h1>Create Account</h1>
 
           <p className="tourup-auth-subtitle">
-            Join TourUP and start exploring Uttar Pradesh
+            Join Uttar Pradesh Unveiled and start exploring Uttar Pradesh
           </p>
 
 

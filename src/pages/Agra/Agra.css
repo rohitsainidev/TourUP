@@ -1,799 +1,1528 @@
 /* ===========================
    Google Font
 =========================== */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+/* ===========================
+   Base Reset & Polish
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
-    background:#f8f9fb;
+body {
+    background: #ffffff;
+    color: #334155;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.agra-page {
+    width: 100%;
+    overflow-x: hidden;
+    background: #ffffff;
 }
 
 /* ===========================
-        Main Container
+   Shared Typography & Eyebrows
 =========================== */
+.agra-page .section-eyebrow {
+    display: inline-block;
+    color: #ff6600;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    background: none;
+}
 
-.agra-page{
-    width:100%;
-    background:#fff;
+.agra-page .section-header-centered {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 45px;
+    padding: 0 10px;
+}
+
+.agra-page .section-header-centered h2 {
+    font-size: clamp(28px, 3.6vw, 42px);
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    background: none;
+}
+
+.agra-page .section-subtitle {
+    font-size: 15.5px;
+    color: #64748b;
+    line-height: 1.65;
+    background: none;
 }
 
 /* ===========================
-        Hero Section
+   Hero Section (Cinematic Hero)
 =========================== */
-
-.hero-section{
-    max-width:1300px;
-    margin:auto;
-    padding:90px 60px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:70px;
+.agra-page .hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 85vh;
+    min-height: 85dvh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 120px 40px 80px;
+    background: #0b0f19;
 }
 
-.hero-content{
-    flex:1;
+.agra-page .hero-bg-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
 }
 
-.tag{
-    display:inline-block;
-    background:#ffefe2;
-    color:#ff6600;
-    padding:8px 20px;
-    border-radius:30px;
-    font-size:14px;
-    font-weight:600;
-    margin-bottom:20px;
+.agra-page .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    transform: scale(1.03);
+    animation: heroImgPan 20s infinite alternate ease-in-out;
 }
 
-.hero-content h1{
-    font-size:58px;
-    line-height:1.2;
-    color:#222;
-    margin-bottom:25px;
+@keyframes heroImgPan {
+    0% { transform: scale(1.02) translateY(0); }
+    100% { transform: scale(1.08) translateY(-10px); }
 }
 
-.hero-content h1 span{
-    color:#ff6b00;
+.agra-page .hero-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.52) 45%,
+            rgba(0, 0, 0, 0.18) 75%,
+            rgba(0, 0, 0, 0.35) 100%
+        ),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 40%, rgba(0, 0, 0, 0.65) 100%);
 }
 
-.hero-content p{
-    font-size:18px;
-    color:#666;
-    line-height:1.9;
-    text-align:justify;
+.agra-page .hero-inner-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
-.hero-buttons{
-    display:flex;
-    gap:20px;
-    margin-top:35px;
+.agra-page .hero-content {
+    max-width: 640px;
+    text-align: left;
 }
 
-.btn-primary{
-    background:#ff6b00;
-    color:white;
-    border:none;
-    padding:15px 35px;
-    border-radius:50px;
-    cursor:pointer;
-    font-size:16px;
-    font-weight:600;
-    transition:.4s;
+.agra-page .hero-main-title {
+    font-size: clamp(34px, 5.2vw, 58px);
+    font-weight: 800;
+    line-height: 1.16;
+    color: #ffffff;
+    margin-bottom: 22px;
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.75);
 }
 
-.btn-primary:hover{
-    background:#d85600;
-    transform:translateY(-4px);
+.agra-page .hero-title-highlight {
+    color: #ff6b00;
+    text-shadow: 0 2px 18px rgba(255, 107, 0, 0.45);
 }
 
-.btn-secondary{
-    background:white;
-    border:2px solid #ff6b00;
-    color:#ff6b00;
-    padding:15px 35px;
-    border-radius:50px;
-    cursor:pointer;
-    font-size:16px;
-    font-weight:600;
-    transition:.4s;
+.agra-page .hero-lead-text {
+    font-size: 17.5px;
+    line-height: 1.85;
+    color: #f1f5f9;
+    margin-bottom: 34px;
+    max-width: 580px;
+    font-weight: 400;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
 }
 
-.btn-secondary:hover{
-    background:#ff6b00;
-    color:white;
+.agra-page .hero-action-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 0;
+}
+
+.agra-page .btn-hero-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #ff6b00 0%, #ff8833 100%);
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(255, 107, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.agra-page .btn-hero-primary:hover {
+    background: linear-gradient(135deg, #e65c00 0%, #ff7711 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 32px rgba(255, 107, 0, 0.52);
+    color: #ffffff;
+}
+
+.agra-page .btn-hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    padding: 15px 34px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.agra-page .btn-hero-secondary:hover {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: #ffffff;
+    transform: translateY(-3px);
+    color: #ffffff;
+}
+
+/* Scroll Cue */
+.agra-page .hero-scroll-cue {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.agra-page .hero-scroll-cue a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: #ffffff;
+    transition: all 0.3s ease;
+    animation: agraBounce 2s infinite ease-in-out;
+}
+
+.agra-page .hero-scroll-cue a:hover {
+    background: #ff6b00;
+    border-color: #ff6b00;
+}
+
+.agra-page .scroll-arrow {
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-bottom: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+    transform: rotate(45deg);
+    margin-top: -3px;
+}
+
+@keyframes agraBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(8px);
+    }
+    60% {
+        transform: translateY(4px);
+    }
 }
 
 /* ===========================
-      Hero Image
+   About Section
 =========================== */
-
-.hero-image{
-    flex:1;
-    display:flex;
-    justify-content:center;
+.agra-page .about-section {
+    padding: 95px 30px 85px;
+    background: #ffffff;
 }
 
-.hero-image img{
-
-    width:100%;
-    max-width:560px;
-
-    height:650px;
-
-    object-fit:cover;
-
-    border-radius:25px;
-
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
-
-    transition:.5s;
+.agra-page .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.hero-image img:hover{
+.agra-page .about-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 35px;
+}
 
-    transform:scale(1.03);
+.agra-page .about-eyebrow {
+    display: inline-block;
+    color: #ff6600;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    background: none;
+}
 
+.agra-page .about-heading {
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 800;
+    line-height: 1.25;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    background: none;
+}
+
+.agra-page .about-heading span {
+    color: #ff6600;
+}
+
+.agra-page .about-text-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin: 35px 0 45px;
+}
+
+.agra-page .about-paragraph {
+    font-size: 16.5px;
+    line-height: 1.85;
+    color: #475569;
+    text-align: justify;
+    background: none;
+}
+
+.agra-page .about-stats-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    margin: 0 auto 60px;
+    padding: 16px 0;
+    background: transparent;
+    border: none;
+    max-width: 900px;
+}
+
+.agra-page .about-stat {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: none;
+}
+
+.agra-page .about-stat strong {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ff6600;
+    line-height: 1.1;
+    background: none;
+}
+
+.agra-page .about-stat span {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+    margin-top: 4px;
+    background: none;
+}
+
+.agra-page .about-stat-divider {
+    width: 1px;
+    height: 38px;
+    background: #e2e8f0;
+}
+
+/* Highlights Grid */
+.agra-page .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.agra-page .highlight-card {
+    background: #ffffff;
+    border: 1.5px solid #f1f5f9;
+    border-radius: 20px;
+    padding: 30px 24px;
+    text-align: left;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.agra-page .highlight-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 36px rgba(255, 102, 0, 0.1);
+    border-color: rgba(255, 102, 0, 0.35);
+}
+
+.agra-page .highlight-icon {
+    font-size: 26px;
+    color: #ff6600;
+    margin-bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
+
+.agra-page .highlight-icon-svg {
+    font-size: 26px;
+    color: #ff6600;
+}
+
+.agra-page .highlight-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+    background: none;
+}
+
+.agra-page .highlight-card p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
+    background: none;
 }
 
 /* ===========================
-        About Section
+   Top Attractions (Places)
 =========================== */
-
-.about-section{
-
-    max-width:1200px;
-
-    margin:80px auto;
-
-    padding:0 40px;
-
+.agra-page .places {
+    max-width: 1300px;
+    margin: 80px auto;
+    padding: 0 30px;
 }
 
-.about-section h2{
-
-    font-size:40px;
-
-    margin-bottom:20px;
-
-    color:#222;
-
+.agra-page .place-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 32px;
 }
 
-.about-section p{
+.agra-page .place-card {
+    background: #ffffff;
+    border-radius: 22px;
+    border: 1.5px solid #f1f5f9;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
 
-    font-size:18px;
+.agra-page .place-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 42px rgba(0, 0, 0, 0.12);
+    border-color: rgba(255, 102, 0, 0.3);
+}
 
-    color:#666;
+.agra-page .place-media-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: #0f172a;
+}
 
-    line-height:1.9;
+.agra-page .place-media-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-    margin-bottom:20px;
+.agra-page .place-card:hover .place-media-wrapper img {
+    transform: scale(1.08);
+}
 
-    text-align:justify;
+.agra-page .place-content {
+    padding: 26px 26px 28px;
+}
 
+.agra-page .place-content h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    background: none;
+}
+
+.agra-page .place-content p {
+    font-size: 14.5px;
+    color: #64748b;
+    line-height: 1.8;
+    text-align: justify;
+    background: none;
 }
 
 /* ===========================
-        Highlights
+   History & Visit Sections
 =========================== */
-
-.highlights{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    padding:30px 40px 80px;
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:25px;
-
+.agra-page .history-section {
+    max-width: 1180px;
+    margin: 80px auto 40px;
+    padding: 0 30px;
 }
 
-.highlight-box{
-
-    background:white;
-
-    border-radius:20px;
-
-    padding:30px;
-
-    text-align:center;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    transition:.4s;
-
+.agra-page .history-content-box {
+    background: #ffffff;
+    border: 1.5px solid #f1f5f9;
+    border-radius: 24px;
+    padding: 44px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
-.highlight-box:hover{
-
-    transform:translateY(-10px);
-
+.agra-page .history-content-box h2 {
+    font-size: clamp(26px, 3.2vw, 36px);
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+    background: none;
 }
 
-.highlight-box h3{
-
-    margin-bottom:15px;
-
-    color:#ff6600;
-
+.agra-page .history-content-box p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #475569;
+    margin-bottom: 16px;
+    text-align: justify;
+    background: none;
 }
 
-.highlight-box p{
-
-    color:#666;
-
-    line-height:1.7;
-
-}
-/* ===========================
-        Top Attractions
-=========================== */
-
-.places{
-    max-width:1300px;
-    margin:80px auto;
-    padding:0 40px;
+.agra-page .history-content-box p:last-child {
+    margin-bottom: 0;
 }
 
-.places h2{
-    text-align:center;
-    font-size:42px;
-    margin-bottom:50px;
-    color:#222;
+/* Seasonal Guide / Visit Section */
+.agra-page .visit-section {
+    max-width: 1180px;
+    margin: 40px auto 75px;
+    padding: 0 30px;
 }
 
-.place-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-    gap:35px;
+.agra-page .visit-container-box {
+    background: #ffffff;
+    border: 1.5px solid rgba(255, 102, 0, 0.22);
+    border-radius: 24px;
+    padding: 38px 40px;
+    box-shadow: 0 10px 30px rgba(255, 102, 0, 0.05);
 }
 
-.place-card{
-    background:#fff;
-    border-radius:22px;
-    overflow:hidden;
-    box-shadow:0 12px 35px rgba(0,0,0,.08);
-    transition:.4s;
+.agra-page .visit-container-box h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 12px;
+    background: none;
 }
 
-.place-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 18px 45px rgba(0,0,0,.15);
+.agra-page .visit-container-box p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #475569;
+    background: none;
 }
 
-.place-card img{
-    width:100%;
-    height:260px;
-    object-fit:cover;
-    transition:.5s;
-}
-
-.place-card:hover img{
-    transform:scale(1.08);
-}
-
-.place-content{
-    padding:28px;
-}
-
-.place-content h3{
-    font-size:28px;
-    color:#222;
-    margin-bottom:15px;
-}
-
-.place-content p{
-    color:#666;
-    line-height:1.9;
-    text-align:justify;
+.agra-page .visit-container-box strong {
+    color: #ff6600;
 }
 
 /* ===========================
-        History
+   Timings & Info Section
 =========================== */
-
-.history-section{
-    max-width:1200px;
-    margin:90px auto;
-    padding:0 40px;
+.agra-page .info-section {
+    max-width: 1180px;
+    margin: 80px auto;
+    padding: 0 30px;
 }
 
-.history-section h2{
-    font-size:42px;
-    color:#222;
-    margin-bottom:25px;
+.agra-page .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
-.history-section p{
-    font-size:18px;
-    line-height:2;
-    color:#666;
-    margin-bottom:20px;
-    text-align:justify;
+.agra-page .info-card {
+    background: #ffffff;
+    border: 1.5px solid #f1f5f9;
+    border-radius: 20px;
+    padding: 34px 26px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.agra-page .info-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 102, 0, 0.35);
+    box-shadow: 0 16px 35px rgba(255, 102, 0, 0.1);
+}
+
+.agra-page .info-icon-wrapper {
+    font-size: 28px;
+    color: #ff6600;
+    margin-bottom: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
+
+.agra-page .info-badge-icon {
+    font-size: 26px;
+    color: #ff6600;
+}
+
+.agra-page .info-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+    background: none;
+}
+
+.agra-page .info-time-val {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ff6600;
+    margin-bottom: 6px;
+    background: none;
+}
+
+.agra-page .info-status {
+    font-size: 13.5px;
+    color: #64748b;
+    background: none;
+}
+
+.agra-page .info-status strong {
+    color: #0f172a;
 }
 
 /* ===========================
-        Visit Section
+   Ticket Table & Fee
 =========================== */
-
-.visit-section{
-    max-width:1200px;
-    margin:80px auto;
-    padding:45px;
-    background:#fff7f0;
-    border-left:8px solid #ff6600;
-    border-radius:20px;
+.agra-page .ticket-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 18px;
+    border: 1.5px solid #f1f5f9;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    margin-top: 15px;
 }
 
-.visit-section h2{
-    font-size:36px;
-    color:#222;
-    margin-bottom:20px;
+.agra-page .ticket-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 560px;
+    background: #ffffff;
 }
 
-.visit-section p{
-    color:#555;
-    font-size:18px;
-    line-height:1.9;
+.agra-page .ticket-table thead {
+    background: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.agra-page .ticket-table th {
+    color: #0f172a;
+    padding: 18px 24px;
+    font-size: 14.5px;
+    font-weight: 700;
+    text-align: left;
+    letter-spacing: 0.3px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.agra-page .ticket-table th:last-child {
+    text-align: right;
+}
+
+.agra-page .ticket-table td {
+    padding: 16px 24px;
+    text-align: left;
+    font-size: 15px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    background: none;
+}
+
+.agra-page .ticket-table td:last-child {
+    text-align: right;
+    color: #ff6600;
+    font-weight: 700;
+}
+
+.agra-page .ticket-table tbody tr:hover {
+    background: #fffcf9;
+}
+
+.agra-page .ticket-desktop-view {
+    display: block;
+}
+
+.agra-page .ticket-mobile-cards {
+    display: none;
+}
+
+.agra-page .ticket-mobile-card {
+    background: #ffffff;
+    border: 1.5px solid #f1f5f9;
+    border-radius: 16px;
+    padding: 18px 20px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.agra-page .ticket-mobile-card:hover {
+    border-color: rgba(255, 102, 0, 0.35);
+}
+
+.agra-page .ticket-mobile-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+    background: none;
+}
+
+.agra-page .ticket-mobile-cat {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    background: none;
+}
+
+.agra-page .ticket-mobile-total-badge {
+    font-size: 18px;
+    font-weight: 800;
+    color: #ff6600;
+    background: none;
+}
+
+.agra-page .ticket-mobile-breakdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    background: none;
+}
+
+.agra-page .ticket-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: none;
+}
+
+.agra-page .detail-label {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: none;
+}
+
+.agra-page .detail-value {
+    font-size: 15px;
+    color: #0f172a;
+    font-weight: 600;
+    background: none;
+}
+
+.agra-page .ticket-note {
+    margin-top: 22px;
+    padding: 16px 22px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #ff6600;
+    border-radius: 12px;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.agra-page .ticket-note strong {
+    color: #0f172a;
 }
 
 /* ===========================
-        Info Cards
+   Food Section (Compact & Clean)
 =========================== */
-
-.info-section{
-    max-width:1200px;
-    margin:90px auto;
-    padding:0 40px;
+.agra-page .food-section {
+    padding: 70px 30px;
+    background: #fafafc;
 }
 
-.info-section h2{
-    text-align:center;
-    margin-bottom:40px;
-    font-size:40px;
+.agra-page .food-container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.info-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+.agra-page .food-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 38px;
 }
 
-.info-card{
-    background:#fff;
-    padding:35px;
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-    transition:.4s;
+.agra-page .food-eyebrow {
+    display: inline-block;
+    color: #ff6600;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    background: none;
 }
 
-.info-card:hover{
-    transform:translateY(-8px);
+.agra-page .food-header h2 {
+    font-size: clamp(26px, 3.4vw, 38px);
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.25;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    background: none;
 }
 
-.info-card h3{
-    color:#ff6600;
-    margin-bottom:15px;
+.agra-page .food-subtitle {
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.6;
+    background: none;
 }
 
-.info-card p{
-    color:#555;
-    line-height:1.8;
+.agra-page .food-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.agra-page .food-item {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #edf2f7;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.agra-page .food-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+    border-color: rgba(255, 102, 0, 0.35);
+}
+
+.agra-page .food-item-media {
+    width: 120px;
+    height: 120px;
+    border-radius: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #e2e8f0;
+}
+
+.agra-page .food-item-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.agra-page .food-item:hover .food-item-media img {
+    transform: scale(1.08);
+}
+
+.agra-page .food-item-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.agra-page .food-item-category {
+    font-size: 11px;
+    font-weight: 700;
+    color: #ff6600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    background: none;
+    display: block;
+}
+
+.agra-page .food-item-info h3 {
+    font-size: 18.5px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 5px;
+    line-height: 1.25;
+    background: none;
+}
+
+.agra-page .food-item-info p {
+    font-size: 13.5px;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0 0 9px;
+    background: none;
+}
+
+.agra-page .food-item-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 7px;
+}
+
+.agra-page .food-item-place {
+    font-size: 12px;
+    color: #334155;
+    background: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.agra-page .food-pin-icon {
+    color: #ff6600;
+    font-size: 13.5px;
+    flex-shrink: 0;
+}
+
+.agra-page .food-item-place strong {
+    color: #0f172a;
+    font-weight: 600;
+    background: none;
+}
+
+.agra-page .food-item-varieties {
+    font-size: 11.5px;
+    color: #94a3b8;
+    background: none;
 }
 
 /* ===========================
-        Ticket Table
+   How to Reach Section
 =========================== */
+.agra-page .reach-section {
+    max-width: 1180px;
+    margin: 85px auto;
+    padding: 0 30px;
+}
+
+.agra-page .reach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.agra-page .reach-card {
+    background: #ffffff;
+    border: 1.5px solid #f1f5f9;
+    border-radius: 20px;
+    padding: 34px 26px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.agra-page .reach-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 102, 0, 0.35);
+    box-shadow: 0 16px 35px rgba(255, 102, 0, 0.1);
+}
+
+.agra-page .reach-icon-wrap {
+    font-size: 28px;
+    color: #ff6600;
+    margin-bottom: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
+
+.agra-page .reach-icon-svg {
+    font-size: 26px;
+    color: #ff6600;
+}
+
+.agra-page .reach-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 10px;
+    background: none;
+}
+
+.agra-page .reach-card p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.7;
+    background: none;
+}
 
 /* ===========================
-        Ticket Table
+   Travel Tips (Clean & Minimalist Frame)
 =========================== */
-
-.ticket-table{
-    width:100%;
-    margin-top:30px;
-    border-collapse:collapse;
-    background:#fff;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+.agra-page .tips-section {
+    max-width: 1180px;
+    margin: 75px auto 65px;
+    padding: 0 30px;
 }
 
-.ticket-table thead{
-    background:linear-gradient(135deg,#ff6600,#ff8c00);
+.agra-page .tips-container {
+    width: 100%;
 }
 
-.ticket-table th{
-    color:#fff;
-    padding:18px;
-    font-size:17px;
-    font-weight:600;
-    text-align:center;
+.agra-page .tips-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 40px;
 }
 
-.ticket-table td{
-    padding:16px;
-    text-align:center;
-    font-size:16px;
-    border-bottom:1px solid #eee;
-    color:#444;
+.agra-page .tips-eyebrow {
+    display: inline-block;
+    color: #ff6600;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    background: none;
 }
 
-.ticket-table tbody tr:nth-child(even){
-    background:#fafafa;
+.agra-page .tips-header h2 {
+    font-size: clamp(26px, 3.4vw, 38px);
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.25;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    background: none;
 }
 
-.ticket-table tbody tr:hover{
-    background:#fff5ec;
-    transition:.3s;
+.agra-page .tips-subtitle {
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.6;
+    background: none;
 }
 
-.ticket-table td:first-child{
-    text-align:left;
-    font-weight:600;
-    color:#222;
+.agra-page .tips-frame {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
 }
 
-.ticket-table td:last-child{
-    color:#ff6600;
-    font-weight:700;
+.agra-page .tips-col {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    background: none;
 }
 
-.ticket-note{
-    margin-top:20px;
-    padding:18px 20px;
-    background:#fff8e6;
-    border-left:5px solid #ff9800;
-    border-radius:10px;
-    color:#555;
-    line-height:1.8;
+.agra-page .tips-col-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid #f1f5f9;
+    margin-bottom: 4px;
 }
 
-.ticket-note strong{
-    color:#ff6600;
+.agra-page .tips-col-badge {
+    font-size: 13px;
+    font-weight: 800;
+    color: #ff6600;
+    letter-spacing: 1px;
+    background: none;
 }
 
-/* Responsive */
+.agra-page .tips-col-header h3 {
+    font-size: 18.5px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    background: none;
+}
 
-@media(max-width:768px){
+.agra-page .tip-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: none;
+    transition: transform 0.25s ease;
+}
 
-    .ticket-table{
-        display:block;
-        overflow-x:auto;
-        white-space:nowrap;
+.agra-page .tip-item:hover {
+    transform: translateX(4px);
+}
+
+.agra-page .tip-item-icon {
+    color: #ff6600;
+    font-size: 21px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.agra-page .tip-item-text {
+    flex: 1;
+    min-width: 0;
+    background: none;
+}
+
+.agra-page .tip-item-text h4 {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 5px;
+    line-height: 1.3;
+    background: none;
+}
+
+.agra-page .tip-item-text p {
+    font-size: 13.5px;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+    background: none;
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS (Mobile & Tablet Perfection)
+========================================================= */
+
+/* Tablet & Smaller Laptops */
+@media (max-width: 1024px) {
+    .agra-page .highlights-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
-    .ticket-table th,
-    .ticket-table td{
-        padding:12px;
-        font-size:14px;
+    .agra-page .tips-frame {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .agra-page .hero-section {
+        padding: 110px 28px 75px;
+        min-height: 75vh;
     }
 
-    .ticket-note{
-        font-size:14px;
+    .agra-page .about-section {
+        padding: 75px 24px;
     }
 
+    .agra-page .about-text-content {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .agra-page .about-stats-row {
+        gap: 28px;
+    }
+
+    .agra-page .places {
+        margin: 65px auto;
+        padding: 0 24px;
+    }
+
+    .agra-page .place-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .agra-page .history-section,
+    .agra-page .visit-section,
+    .agra-page .info-section,
+    .agra-page .reach-section {
+        margin: 65px auto;
+        padding: 0 24px;
+    }
+
+    .agra-page .food-section {
+        padding: 60px 24px;
+    }
+
+    .agra-page .food-list {
+        grid-template-columns: 1fr;
+        max-width: 620px;
+        margin: 0 auto;
+        gap: 18px;
+    }
+
+    .agra-page .tips-section {
+        margin: 60px auto 50px;
+        padding: 0 24px;
+    }
+
+    .agra-page .tips-frame {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
 }
 
-/* ===========================
-        Food Section
-=========================== */
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .agra-page .hero-section {
+        padding: 95px 20px 65px;
+        min-height: auto;
+    }
 
-.food-section{
-    max-width:1200px;
-    margin:90px auto;
-    padding:0 40px;
+    .agra-page .hero-content {
+        text-align: left;
+    }
+
+    .agra-page .hero-action-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 340px;
+        width: 100%;
+    }
+
+    .agra-page .btn-hero-primary,
+    .agra-page .btn-hero-secondary {
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+        padding: 14px 28px;
+    }
+
+    .agra-page .about-section {
+        padding: 55px 18px;
+    }
+
+    .agra-page .about-header {
+        margin-bottom: 25px;
+    }
+
+    .agra-page .about-heading {
+        font-size: 28px;
+    }
+
+    .agra-page .about-paragraph {
+        font-size: 15px;
+        text-align: left;
+    }
+
+    .agra-page .about-stats-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 16px;
+        margin: 0 auto 40px;
+    }
+
+    .agra-page .about-stat-divider {
+        display: none;
+    }
+
+    .agra-page .about-stat strong {
+        font-size: 24px;
+    }
+
+    .agra-page .places {
+        margin: 50px auto;
+        padding: 0 18px;
+    }
+
+    .agra-page .place-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .agra-page .place-media-wrapper {
+        height: 220px;
+    }
+
+    .agra-page .place-content {
+        padding: 20px;
+    }
+
+    .agra-page .history-section,
+    .agra-page .visit-section,
+    .agra-page .info-section,
+    .agra-page .reach-section {
+        margin: 50px auto;
+        padding: 0 18px;
+    }
+
+    .agra-page .history-content-box {
+        padding: 30px 22px;
+        border-radius: 20px;
+    }
+
+    .agra-page .history-content-box p {
+        font-size: 14.5px;
+        text-align: left;
+    }
+
+    .agra-page .visit-container-box {
+        padding: 26px 22px;
+        border-radius: 20px;
+    }
+
+    .agra-page .visit-container-box p {
+        font-size: 14.5px;
+    }
+
+    .agra-page .info-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .agra-page .info-card {
+        padding: 26px 20px;
+    }
+
+    .agra-page .reach-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .agra-page .reach-card {
+        padding: 26px 20px;
+    }
+
+    .agra-page .food-section {
+        padding: 48px 18px;
+    }
+
+    .agra-page .food-item {
+        padding: 14px;
+        gap: 14px;
+    }
+
+    .agra-page .food-item-media {
+        width: 105px;
+        height: 105px;
+        border-radius: 12px;
+    }
+
+    .agra-page .tips-section {
+        margin: 45px auto 40px;
+        padding: 0 18px;
+    }
+
+    .agra-page .tips-col {
+        gap: 20px;
+    }
+
+    .agra-page .ticket-desktop-view {
+        display: none !important;
+    }
+
+    .agra-page .ticket-mobile-cards {
+        display: flex !important;
+        flex-direction: column;
+        gap: 14px;
+        width: 100%;
+        margin-top: 15px;
+    }
 }
 
-.food-section h2{
-    text-align:center;
-    font-size:40px;
-    margin-bottom:40px;
+/* Small Phones (< 480px) */
+@media (max-width: 480px) {
+    .agra-page .hero-section {
+        padding: 85px 16px 55px;
+    }
+
+    .agra-page .hero-main-title {
+        font-size: 30px;
+        margin-bottom: 16px;
+    }
+
+    .agra-page .hero-lead-text {
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 26px;
+    }
+
+    .agra-page .about-section {
+        padding: 45px 16px;
+    }
+
+    .agra-page .highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .agra-page .highlight-card {
+        padding: 22px 18px;
+    }
+
+    .agra-page .section-header-centered {
+        margin-bottom: 30px;
+    }
+
+    .agra-page .section-header-centered h2 {
+        font-size: 26px;
+    }
+
+    .agra-page .places {
+        margin: 40px auto;
+        padding: 0 16px;
+    }
+
+    .agra-page .place-media-wrapper {
+        height: 200px;
+    }
+
+    .agra-page .place-content h3 {
+        font-size: 20px;
+    }
+
+    .agra-page .place-content p {
+        font-size: 13.5px;
+    }
+
+    .agra-page .history-section,
+    .agra-page .visit-section,
+    .agra-page .info-section,
+    .agra-page .reach-section {
+        margin: 40px auto;
+        padding: 0 16px;
+    }
+
+    .agra-page .food-section {
+        padding: 40px 14px;
+    }
+
+    .agra-page .food-item {
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .agra-page .food-item-media {
+        width: 88px;
+        height: 88px;
+        border-radius: 10px;
+    }
+
+    .agra-page .food-item-info h3 {
+        font-size: 16px;
+    }
+
+    .agra-page .food-item-info p {
+        font-size: 12.5px;
+        margin-bottom: 6px;
+    }
+
+    .agra-page .food-item-place {
+        font-size: 11.5px;
+    }
+
+    .agra-page .food-item-varieties {
+        font-size: 11px;
+    }
+
+    .agra-page .tips-section {
+        margin: 35px auto 30px;
+        padding: 0 14px;
+    }
+
+    .agra-page .tips-col {
+        gap: 16px;
+    }
+
+    .agra-page .tips-col-header h3 {
+        font-size: 16px;
+    }
+
+    .agra-page .tip-item-icon {
+        font-size: 18px;
+    }
+
+    .agra-page .tip-item-text h4 {
+        font-size: 14.5px;
+    }
+
+    .agra-page .tip-item-text p {
+        font-size: 12.5px;
+    }
+
+    .agra-page .ticket-mobile-card {
+        padding: 14px 16px;
+        border-radius: 14px;
+    }
+
+    .agra-page .ticket-mobile-cat {
+        font-size: 14.5px;
+    }
+
+    .agra-page .ticket-mobile-total-badge {
+        font-size: 16.5px;
+    }
+
+    .agra-page .detail-label {
+        font-size: 10px;
+    }
+
+    .agra-page .detail-value {
+        font-size: 14px;
+    }
+
+    .agra-page .ticket-note {
+        font-size: 12.5px;
+        padding: 12px 16px;
+    }
 }
 
-.food-card{
-    display:flex;
-    align-items:center;
-    gap:40px;
-    background:#fff;
-    padding:30px;
-    border-radius:25px;
-    box-shadow:0 12px 35px rgba(0,0,0,.08);
-}
+/* Very Small Screens (< 360px) */
+@media (max-width: 360px) {
+    .agra-page .food-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-.food-card img{
-    width:420px;
-    height:300px;
-    object-fit:cover;
-    border-radius:18px;
-}
-
-.food-card h3{
-    font-size:34px;
-    margin-bottom:18px;
-}
-
-.food-card p{
-    color:#666;
-    line-height:1.9;
-    text-align:justify;
-}
-
-.food-card ul{
-    margin-top:20px;
-    padding-left:20px;
-}
-
-.food-card li{
-    margin-bottom:12px;
-    color:#444;
-}
-/* ===========================
-        Reach Section
-=========================== */
-
-.reach-section{
-    max-width:1200px;
-    margin:90px auto;
-    padding:0 40px;
-}
-
-.reach-section h2{
-    text-align:center;
-    font-size:40px;
-    color:#222;
-    margin-bottom:40px;
-}
-
-.reach-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.reach-card{
-    background:#fff;
-    padding:30px;
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-    transition:.3s;
-}
-
-.reach-card:hover{
-    transform:translateY(-8px);
-}
-
-.reach-card h3{
-    color:#ff6600;
-    margin-bottom:15px;
-}
-
-.reach-card p{
-    color:#666;
-    line-height:1.8;
-}
-
-/* ===========================
-        Travel Tips
-=========================== */
-
-.tips-section{
-    max-width:1200px;
-    margin:90px auto;
-    padding:0 40px;
-}
-
-.tips-section h2{
-    text-align:center;
-    font-size:40px;
-    margin-bottom:30px;
-}
-
-.tips-section ul{
-    background:#fff;
-    padding:35px 45px;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.tips-section li{
-    font-size:18px;
-    color:#555;
-    margin-bottom:18px;
-    line-height:1.8;
-}
-
-/* ===========================
-        Google Map Button
-=========================== */
-
-.map-section{
-    text-align:center;
-    padding:70px 20px 100px;
-}
-
-.map-section h2{
-    font-size:38px;
-    margin-bottom:25px;
-}
-
-.map-btn{
-    display:inline-block;
-    background:#ff6600;
-    color:#fff;
-    text-decoration:none;
-    padding:16px 38px;
-    border-radius:50px;
-    font-size:17px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.map-btn:hover{
-    background:#d85600;
-    transform:translateY(-4px);
-}
-
-/* ===========================
-        Responsive
-=========================== */
-
-@media (max-width:992px){
-
-.hero-section{
-    flex-direction:column;
-    text-align:center;
-    padding:70px 30px;
-}
-
-.hero-content h1{
-    font-size:46px;
-}
-
-.hero-content p{
-    text-align:center;
-}
-
-.hero-buttons{
-    justify-content:center;
-}
-
-.hero-image img{
-    max-width:100%;
-    height:500px;
-}
-
-.food-card{
-    flex-direction:column;
-}
-
-.food-card img{
-    width:100%;
-    height:350px;
-}
-
-.highlights{
-    grid-template-columns:repeat(2,1fr);
-}
-
-}
-
-@media (max-width:768px){
-
-.hero-section{
-    padding:50px 20px;
-}
-
-.hero-content h1{
-    font-size:36px;
-}
-
-.hero-content p{
-    font-size:16px;
-}
-
-.about-section,
-.places,
-.history-section,
-.info-section,
-.food-section,
-.reach-section,
-.tips-section{
-
-    padding:0 20px;
-}
-
-.place-grid{
-    grid-template-columns:1fr;
-}
-
-.food-card{
-    padding:20px;
-}
-
-.food-card h3{
-    font-size:28px;
-}
-
-.ticket-table{
-    font-size:14px;
-}
-
-.ticket-table th,
-.ticket-table td{
-    padding:12px;
-}
-
-.highlights{
-    grid-template-columns:1fr;
-}
-
-}
-
-@media (max-width:480px){
-
-.hero-content h1{
-    font-size:30px;
-}
-
-.hero-buttons{
-    flex-direction:column;
-}
-
-.btn-primary,
-.btn-secondary{
-    width:100%;
-}
-
-.hero-image img{
-    height:350px;
-}
-
-.places h2,
-.about-section h2,
-.history-section h2,
-.food-section h2,
-.info-section h2,
-.reach-section h2,
-.tips-section h2,
-.map-section h2{
-    font-size:30px;
-}
-
-.place-content{
-    padding:20px;
-}
-
-.place-content h3{
-    font-size:24px;
-}
-
-.place-content p{
-    font-size:15px;
-}
-
-.info-card{
-    padding:25px;
-}
-
-.map-btn{
-    width:100%;
-    max-width:300px;
-}
-
+    .agra-page .food-item-media {
+        width: 100%;
+        height: 140px;
+    }
 }

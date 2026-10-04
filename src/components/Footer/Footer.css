@@ -76,17 +76,46 @@
 }
 
 .footer-logo {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: -0.5px;
-  margin-bottom: 16px;
-  line-height: 1;
-  text-shadow: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-bottom: 18px;
+  transition: transform 0.25s ease;
 }
 
-.footer-logo span {
+.footer-logo:hover {
+  transform: translateY(-2px);
+}
+
+.footer-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 14px rgba(255, 167, 38, 0.4));
+}
+
+.footer-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.footer-brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.6px;
+  font-family: inherit;
+}
+
+.footer-brand-subtitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
   color: #ffa726;
+  text-transform: uppercase;
+  margin-top: 3px;
 }
 
 .brand-desc {

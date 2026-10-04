@@ -66,7 +66,7 @@ function Contact() {
         >
           <span className="contact-badge">GET IN TOUCH</span>
           <h2>
-            Plan Your Journey With <span>TourUP</span>
+            Plan Your Journey With <span>UP Unveiled</span>
           </h2>
           <p className="contact-lead">
             Have questions about monuments, travel itineraries, city guides, or photo downloads?
@@ -201,7 +201,7 @@ function Contact() {
               <span className="info-badge">
                 <FaHeadset /> DIRECT ASSISTANCE
               </span>
-              <h3>TourUP Travel Desk</h3>
+              <h3>UP Unveiled Travel Desk</h3>
               <p>Connect with our UP Tourism specialists for guidance and recommendations.</p>
             </div>
 

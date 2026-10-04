@@ -4,7 +4,7 @@ import "./WhatsAppButton.css";
 const WhatsAppButton = () => {
   const [isHovered, setIsHovered] = useState(false);
   const phoneNumber = "916397432030";
-  const defaultMessage = "Hello TourUP! I would like to know more about travel in Uttar Pradesh.";
+  const defaultMessage = "Hello Uttar Pradesh Unveiled! I would like to know more about travel in Uttar Pradesh.";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
 
   return (
@@ -36,7 +36,7 @@ const WhatsAppButton = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="whatsapp-main-btn"
-          aria-label="Chat with TourUP on WhatsApp (6397432030)"
+          aria-label="Chat with Uttar Pradesh Unveiled on WhatsApp (6397432030)"
         >
 
           <svg

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Footer.css";
 
 import footerBimg from "../../assets/footer/footer-bimg.jpg";
+import logoImg from "../../assets/logo-mark.png";
 
 import {
   FaMapMarkerAlt,
@@ -42,9 +43,13 @@ function Footer() {
 
         {/* 1. BRAND */}
         <div className="footer-col brand-col">
-          <div className="footer-logo">
-            Tour<span>UP</span>
-          </div>
+          <Link to="/" className="footer-logo" aria-label="Uttar Pradesh Unveiled">
+            <img src={logoImg} alt="Uttar Pradesh Unveiled" className="footer-logo-img" />
+            <div className="footer-brand-text">
+              <span className="footer-brand-title">UTTAR PRADESH</span>
+              <span className="footer-brand-subtitle">UNVEILED</span>
+            </div>
+          </Link>
 
           <p className="brand-desc">
             Your trusted digital companion to exploring the eternal ghats, legendary temples,
@@ -56,7 +61,7 @@ function Footer() {
               href="https://instagram.com"
               target="_blank"
               rel="noreferrer"
-              aria-label="TourUP Instagram"
+              aria-label="Uttar Pradesh Unveiled Instagram"
               className="footer-social-btn"
             >
               <FaInstagram />
@@ -65,7 +70,7 @@ function Footer() {
               href="https://facebook.com"
               target="_blank"
               rel="noreferrer"
-              aria-label="TourUP Facebook"
+              aria-label="Uttar Pradesh Unveiled Facebook"
               className="footer-social-btn"
             >
               <FaFacebookF />
@@ -74,7 +79,7 @@ function Footer() {
               href="https://twitter.com"
               target="_blank"
               rel="noreferrer"
-              aria-label="TourUP Twitter"
+              aria-label="Uttar Pradesh Unveiled Twitter"
               className="footer-social-btn"
             >
               <FaTwitter />
@@ -132,7 +137,7 @@ function Footer() {
                 className="footer-nav-btn"
                 onClick={() => handleNav("about")}
               >
-                About TourUP
+                About UP Unveiled
               </button>
             </li>
             <li>
@@ -163,7 +168,7 @@ function Footer() {
 
             <a href="mailto:support@tourup.com" className="footer-contact-row">
               <FaEnvelope className="f-icon" />
-              <span>support@tourup.com</span>
+              <span>support@upunveiled.com</span>
             </a>
           </div>
         </div>
@@ -175,7 +180,7 @@ function Footer() {
         <div className="footer-bottom-inner">
           <div className="footer-credit-pill">
             <span className="pill-brand">
-              © {new Date().getFullYear()} <strong>Tour<span>UP</span></strong>
+              © {new Date().getFullYear()} <strong>Uttar Pradesh <span>Unveiled</span></strong>
             </span>
             <span className="pill-sep">•</span>
             <span className="pill-text">Made with</span>

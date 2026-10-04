@@ -68,6 +68,7 @@
 .logo {
   display: flex;
   align-items: center;
+  gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
@@ -80,16 +81,38 @@
 }
 
 .navbar-logo-img {
-  height: 46px;
+  height: 42px;
   width: auto;
-  max-width: 175px;
   object-fit: contain;
   display: block;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .logo:hover .navbar-logo-img {
-  transform: scale(1.02);
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.navbar-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.brand-title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  color: #1f2937;
+  font-family: inherit;
+}
+
+.brand-subtitle {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  color: #ea580c;
+  text-transform: uppercase;
+  margin-top: 2px;
 }
 
 
@@ -710,8 +733,17 @@
   }
 
   .navbar-logo-img {
-    height: 36px;
+    height: 34px;
     max-width: 140px;
+  }
+
+  .brand-title {
+    font-size: 13px;
+  }
+
+  .brand-subtitle {
+    font-size: 8px;
+    letter-spacing: 1.6px;
   }
 
   .hamburger {
