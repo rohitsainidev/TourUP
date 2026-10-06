@@ -24,7 +24,7 @@ function Footer() {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
       window.history.replaceState(null, "", `/#${id}`);
     } else {
-      navigate(`/#${id}`);
+      navigate(`/#${id}`, { state: { scrollTo: id, timestamp: Date.now() } });
     }
   };
 
@@ -104,7 +104,7 @@ function Footer() {
               <Link to="/lucknow">Lucknow (Awadh Heritage)</Link>
             </li>
             <li>
-              <Link to="/places">All Destinations</Link>
+              <Link to="/packages">Tour Packages</Link>
             </li>
           </ul>
         </div>

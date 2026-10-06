@@ -179,7 +179,10 @@ function About() {
               <button
                 type="button"
                 className="pillar-action-btn primary"
-                onClick={() => scrollToSection("gallery")}
+                onClick={() => {
+                  navigate("/gallery");
+                  window.scrollTo(0, 0);
+                }}
               >
                 <span>Browse Gallery</span>
                 <FaArrowRight className="btn-arrow" />

@@ -344,17 +344,17 @@
 }
 
 .ayodhya-page .btn-place-details {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 13px 20px;
-  border-radius: 12px;
-  background: #fff7ed;
-  border: 1.5px solid rgba(234, 88, 12, 0.22);
+  gap: 8px;
+  width: fit-content;
+  padding: 0;
+  background: transparent;
+  border: none;
   color: #ea580c;
-  font-size: 0.93rem;
+  font-size: 0.95rem;
   font-weight: 700;
+  letter-spacing: 0.2px;
   cursor: pointer;
   margin-top: auto;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -362,20 +362,30 @@
 }
 
 .ayodhya-page .btn-place-details:hover {
-  background: #ea580c;
-  border-color: #ea580c;
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.28);
+  background: transparent;
+  color: #c2410c;
+}
+
+.ayodhya-page .btn-place-details:focus-visible {
+  outline: 2px solid #ea580c;
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .ayodhya-page .arrow-sym {
   font-size: 1.15rem;
-  transition: transform 0.22s ease;
+  line-height: 1;
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ayodhya-page .btn-place-details:hover .arrow-sym {
-  transform: translateX(4px);
+.ayodhya-page .btn-place-details:hover .arrow-sym,
+.ayodhya-page .place-card:hover .arrow-sym {
+  transform: translateX(5px);
+}
+
+.ayodhya-page .place-card:hover .btn-place-details {
+  color: #c2410c;
 }
 
 
@@ -725,29 +735,44 @@
   transform: scale(1.03);
 }
 
+.ayodhya-page .taste-img-col::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.15) 35%, transparent 55%);
+  pointer-events: none;
+}
+
 .ayodhya-page .taste-badge {
   position: absolute;
-  bottom: 22px;
-  left: 22px;
-  background: rgba(15, 23, 42, 0.88);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 12px 18px;
-  border-radius: 12px;
-  color: #ffffff;
+  bottom: 24px;
+  left: 24px;
+  z-index: 2;
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  padding: 0 0 0 14px;
+  border-left: 3px solid #f59e0b;
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
 .ayodhya-page .taste-badge strong {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: #f59e0b;
+  letter-spacing: -0.2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .ayodhya-page .taste-badge span {
-  font-size: 0.82rem;
-  color: #e2e8f0;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
 }
 
 .ayodhya-page .taste-text-col h2 {

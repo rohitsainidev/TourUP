@@ -103,16 +103,6 @@ const Varanasi = () => {
         <div className="varanasi-hero-inner">
           <div className="varanasi-hero-content">
 
-            <motion.div
-              className="hero-eyebrow-wrap"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65 }}
-            >
-              <span className="hero-tag">UTTAR PRADESH</span>
-              <span className="hero-tag-sep">•</span>
-              <span className="hero-tag-sub">THE ETERNAL CITY</span>
-            </motion.div>
 
             <motion.h1
               className="hero-main-title"
@@ -175,7 +165,6 @@ const Varanasi = () => {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6 }}
           >
-            <span>01</span>
             DISCOVER VARANASI
           </motion.div>
 
@@ -323,10 +312,6 @@ const Varanasi = () => {
           >
 
             <div className="ghats-title">
-
-              <span className="section-number">
-                02
-              </span>
 
               <div>
 
@@ -780,10 +765,6 @@ const Varanasi = () => {
 
             <div className="culture-title">
 
-              <span className="section-number">
-                03
-              </span>
-
               <div>
 
                 <span className="gold-label">
@@ -960,8 +941,8 @@ const Varanasi = () => {
                   loading="lazy"
                 />
                 <div className="food-badge-overlay">
-                  <span className="badge-dot"></span>
-                  <span>GI-Tagged • Famous Banarasi Paan</span>
+                  <span className="badge-tag">GI-TAGGED</span>
+                  <span className="badge-title">Famous Banarasi Paan</span>
                 </div>
               </div>
             </motion.div>
@@ -1066,10 +1047,6 @@ const Varanasi = () => {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-
-            <span className="section-number">
-              04
-            </span>
 
             <div>
 

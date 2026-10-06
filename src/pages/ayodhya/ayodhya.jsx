@@ -259,7 +259,7 @@ function Ayodhya() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="section-eyebrow">01 • WELCOME TO AYODHYA DHAM</span>
+          <span className="section-eyebrow">WELCOME TO AYODHYA DHAM</span>
           <h2>
             The Eternal Capital of the <span>Suryavansha.</span>
           </h2>
@@ -430,7 +430,6 @@ function Ayodhya() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="culture-title">
-              <span className="section-number">02</span>
               <div>
                 <span className="gold-label">CULTURE & HERITAGE</span>
                 <h2>

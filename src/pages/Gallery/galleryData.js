@@ -490,11 +490,11 @@ export const GALLERY_ITEMS = [
 
 export const DESTINATION_PILLS = [
   { label: "All Destinations", value: "all" },
-  { label: "Agra (Taj Mahal)", value: "Agra" },
-  { label: "Varanasi (Kashi)", value: "Varanasi" },
+  { label: "Agra", value: "Agra" },
+  { label: "Varanasi", value: "Varanasi" },
   { label: "Ayodhya", value: "Ayodhya" },
   { label: "Lucknow", value: "Lucknow" },
   { label: "Ghats & Rivers", value: "Ghats & Rivers" },
-  { label: "Temples & Spiritual", value: "Temples & Spiritual" },
-  { label: "Monuments & Heritage", value: "Monuments & Heritage" },
+  { label: "Temples", value: "Temples & Spiritual" },
+  { label: "Monuments", value: "Monuments & Heritage" },
 ];

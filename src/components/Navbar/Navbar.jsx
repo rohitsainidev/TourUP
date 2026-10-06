@@ -9,12 +9,11 @@ import {
   FaImage,
   FaInfoCircle,
   FaEnvelope,
-  FaUser,
-  FaUserPlus,
   FaChevronDown,
   FaBars,
   FaTimes,
   FaGlobe,
+  FaSuitcaseRolling,
 } from "react-icons/fa";
 
 function Navbar() {
@@ -23,6 +22,7 @@ function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
 
   const dropdownRef = useRef(null);
+  const dropdownTimeoutRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -30,6 +30,10 @@ function Navbar() {
      CLOSE EVERYTHING
   ========================= */
   const closeAll = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
     setIsMenuOpen(false);
     setIsDropdownOpen(false);
   };
@@ -47,29 +51,63 @@ function Navbar() {
   const toggleDropdown = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
     setIsDropdownOpen((prev) => !prev);
   };
 
-  const handlePlaceClick = () => {
-    setIsDropdownOpen(false);
-    setIsMenuOpen(false);
+  const handleMouseEnterDropdown = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+    setIsDropdownOpen(true);
   };
+
+  const handleMouseLeaveDropdown = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 220); // 220ms grace period so cursor can move down safely
+  };
+
+  const handlePlaceClick = () => {
+    closeAll();
+  };
+
+  useEffect(() => {
+    return () => {
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  /* =========================
+     CLOSE ON ROUTE CHANGE
+  ========================= */
+  useEffect(() => {
+    closeAll();
+  }, [location.pathname]);
 
   /* =========================
      SMOOTH SCROLL TO SECTION
   ========================= */
   const handleNavScroll = (e, sectionId) => {
-    e.preventDefault();
+    if (e && e.preventDefault) e.preventDefault();
     closeAll();
 
-    const isHomeRoute =
+    const isSinglePage =
       location.pathname === "/" ||
       location.pathname === "/home" ||
-      location.pathname === "/gallery" ||
       location.pathname === "/about" ||
       location.pathname === "/contact";
 
-    if (isHomeRoute) {
+    if (isSinglePage) {
       if (sectionId === "home") {
         window.scrollTo({ top: 0, behavior: "smooth" });
         window.history.replaceState(null, "", "/");
@@ -80,11 +118,17 @@ function Navbar() {
           element.scrollIntoView({ behavior: "smooth", block: "start" });
           window.history.replaceState(null, "", `/#${sectionId}`);
           setActiveSection(sectionId);
+        } else {
+          navigate(`/#${sectionId}`, {
+            state: { scrollTo: sectionId, timestamp: Date.now() },
+          });
         }
       }
     } else {
-      // If user is on a separate page like /agra, /varanasi, /gallery/tajmahal
-      navigate(`/#${sectionId}`, { state: { scrollTo: sectionId } });
+      // From another page (e.g. /gallery, /packages, /agra, /varanasi, /ayodhya, /lucknow)
+      navigate(`/#${sectionId}`, {
+        state: { scrollTo: sectionId, timestamp: Date.now() },
+      });
     }
   };
 
@@ -111,21 +155,20 @@ function Navbar() {
      ACTIVE SECTION SCROLL SPY
   ========================= */
   useEffect(() => {
-    const isHomeRoute =
+    const isSinglePage =
       location.pathname === "/" ||
       location.pathname === "/home" ||
-      location.pathname === "/gallery" ||
       location.pathname === "/about" ||
       location.pathname === "/contact";
 
-    if (!isHomeRoute) {
+    if (!isSinglePage) {
       setActiveSection("");
       return;
     }
 
     const handleScroll = () => {
       const sections = ["contact", "about", "gallery", "home"];
-      const scrollPos = window.scrollY + 200;
+      const scrollPos = window.scrollY + 160;
 
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
@@ -208,10 +251,18 @@ function Navbar() {
           <li
             ref={dropdownRef}
             className={`dropdown ${isDropdownOpen ? "dropdown-open" : ""}`}
+            onMouseEnter={handleMouseEnterDropdown}
+            onMouseLeave={handleMouseLeaveDropdown}
           >
             <button
               type="button"
-              className="dropdown-toggle"
+              className={`dropdown-toggle ${
+                ["/agra", "/varanasi", "/ayodhya", "/lucknow"].includes(
+                  location.pathname
+                )
+                  ? "active"
+                  : ""
+              }`}
               onClick={toggleDropdown}
               aria-expanded={isDropdownOpen}
               aria-haspopup="true"
@@ -224,20 +275,48 @@ function Navbar() {
             </button>
 
             {/* DROPDOWN */}
-            <div className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}>
-              <Link to="/agra" onClick={handlePlaceClick}>
-                <span>Agra</span>
+            <div
+              className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}
+              onMouseEnter={handleMouseEnterDropdown}
+              onMouseLeave={handleMouseLeaveDropdown}
+            >
+              <Link to="/agra" onClick={handlePlaceClick} className="dropdown-link-item">
+                <div className="dropdown-link-content">
+                  <span className="dropdown-city-name">Agra</span>
+                  <span className="dropdown-city-tag">Taj Mahal & Fort</span>
+                </div>
               </Link>
-              <Link to="/varanasi" onClick={handlePlaceClick}>
-                <span>Varanasi</span>
+              <Link to="/varanasi" onClick={handlePlaceClick} className="dropdown-link-item">
+                <div className="dropdown-link-content">
+                  <span className="dropdown-city-name">Varanasi</span>
+                  <span className="dropdown-city-tag">Ghats & Ganga Aarti</span>
+                </div>
               </Link>
-              <Link to="/ayodhya" onClick={handlePlaceClick}>
-                <span>Ayodhya</span>
+              <Link to="/ayodhya" onClick={handlePlaceClick} className="dropdown-link-item">
+                <div className="dropdown-link-content">
+                  <span className="dropdown-city-name">Ayodhya</span>
+                  <span className="dropdown-city-tag">Ram Janmabhoomi</span>
+                </div>
               </Link>
-              <Link to="/lucknow" onClick={handlePlaceClick}>
-                <span>Lucknow</span>
+              <Link to="/lucknow" onClick={handlePlaceClick} className="dropdown-link-item">
+                <div className="dropdown-link-content">
+                  <span className="dropdown-city-name">Lucknow</span>
+                  <span className="dropdown-city-tag">City of Nawabs</span>
+                </div>
               </Link>
             </div>
+          </li>
+
+          {/* ================= TOUR PACKAGES ================= */}
+          <li>
+            <Link
+              to="/packages"
+              className={`nav-item ${location.pathname.startsWith("/packages") ? "active" : ""}`}
+              onClick={closeAll}
+            >
+              <FaSuitcaseRolling className="nav-icon" />
+              <span>Tour Packages</span>
+            </Link>
           </li>
 
           {/* ================= GALLERY ================= */}
@@ -290,26 +369,7 @@ function Navbar() {
             </a>
           </li>
 
-          {/* ================= AUTH ================= */}
-          <li className="auth-buttons">
-            <Link
-              to="/login"
-              className="btn btn-login"
-              onClick={closeAll}
-            >
-              <FaUser className="nav-icon" />
-              <span>Login</span>
-            </Link>
 
-            <Link
-              to="/signup"
-              className="btn btn-signup"
-              onClick={closeAll}
-            >
-              <FaUserPlus className="nav-icon" />
-              <span>Signup</span>
-            </Link>
-          </li>
 
         </ul>
       </div>

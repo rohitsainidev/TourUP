@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -8,16 +8,13 @@ import Home from "./components/Home/Home";
 import Gallery from "./components/Gallery/Gallery";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
-import Places from "./components/Places/Places";
 import WhatsAppButton from "./components/WhatsAppButton/WhatsAppButton";
 import GalleryHub from "./pages/Gallery/GalleryHub";
 import Agra from "./pages/Agra/Agra";
 import Varanasi from "./pages/varanasi/Varanasi";
 import Ayodhya from "./pages/ayodhya/ayodhya";
 import Lucknow from "./pages/lucknow/lucknow";
-
-import Login from "./pages/Login/Login";
-import Signup from "./pages/Signup/Signup";
+import Packages from "./pages/Packages/Packages";
 
 function ScrollHandler() {
   const location = useLocation();
@@ -36,18 +33,29 @@ function ScrollHandler() {
     }
 
     if (targetId) {
-      const timer = setTimeout(() => {
-        if (targetId === "home") {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        } else {
-          const element = document.getElementById(targetId);
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        }
-      }, 100);
+      if (targetId === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
 
-      return () => clearTimeout(timer);
+      let retries = 0;
+      const maxRetries = 20;
+      let timerId = null;
+
+      const tryScroll = () => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else if (retries < maxRetries) {
+          retries++;
+          timerId = setTimeout(tryScroll, 60);
+        }
+      };
+
+      timerId = setTimeout(tryScroll, 50);
+      return () => {
+        if (timerId) clearTimeout(timerId);
+      };
     } else {
       window.scrollTo(0, 0);
     }
@@ -66,17 +74,11 @@ const SinglePageHome = () => (
 );
 
 export default function App() {
-  const location = useLocation();
-
-  const isAuthPage =
-    location.pathname === "/login" ||
-    location.pathname === "/signup";
-
   return (
     <div className="app-container">
       <ScrollHandler />
 
-      {!isAuthPage && <Navbar />}
+      <Navbar />
 
       <main className="main-content">
         <Routes>
@@ -87,21 +89,19 @@ export default function App() {
           <Route path="/contact" element={<SinglePageHome />} />
 
           {/* Dedicated Subpages */}
+          <Route path="/packages" element={<Packages />} />
+          <Route path="/packages/:destination" element={<Packages />} />
           <Route path="/gallery" element={<GalleryHub />} />
           <Route path="/gallery/:place" element={<GalleryHub />} />
-          <Route path="/places" element={<Places />} />
+          <Route path="/places" element={<Navigate to="/packages" replace />} />
           <Route path="/agra" element={<Agra />} />
           <Route path="/varanasi" element={<Varanasi />} />
           <Route path="/ayodhya" element={<Ayodhya />} />
           <Route path="/lucknow" element={<Lucknow />} />
-
-          {/* Auth Pages */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
         </Routes>
       </main>
 
-      {!isAuthPage && <Footer />}
+      <Footer />
 
       <WhatsAppButton />
     </div>

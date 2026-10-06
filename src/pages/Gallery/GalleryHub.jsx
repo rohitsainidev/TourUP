@@ -28,7 +28,7 @@ import { GALLERY_ITEMS, DESTINATION_PILLS } from "./galleryData";
 import "./GalleryHub.css";
 
 // Hero photo background
-import heroBg from "../../assets/footer/footer-bimg.jpg";
+import heroBg from "../../assets/gallery/varanasi/varanasi4.jpg";
 
 const PILL_ICONS = {
   all: FaBorderAll,
@@ -52,6 +52,39 @@ export default function GalleryHub() {
   const [downloadingId, setDownloadingId] = useState(null);
   const [columnsCount, setColumnsCount] = useState(3); // 3 or 4 columns
   const searchInputRef = useRef(null);
+  const tabsListRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const checkScrollButtons = () => {
+    const el = tabsListRef.current;
+    if (el) {
+      setCanScrollLeft(el.scrollLeft > 6);
+      setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 6);
+    }
+  };
+
+  useEffect(() => {
+    const el = tabsListRef.current;
+    if (el) {
+      checkScrollButtons();
+      el.addEventListener("scroll", checkScrollButtons);
+      window.addEventListener("resize", checkScrollButtons);
+      return () => {
+        el.removeEventListener("scroll", checkScrollButtons);
+        window.removeEventListener("resize", checkScrollButtons);
+      };
+    }
+  }, []);
+
+  const handleScrollTabs = (direction) => {
+    if (tabsListRef.current) {
+      tabsListRef.current.scrollBy({
+        left: direction === "left" ? -240 : 240,
+        behavior: "smooth",
+      });
+    }
+  };
 
   // Sync with URL query or route parameter (e.g. /gallery/agra or /gallery?search=varanasi)
   useEffect(() => {
@@ -220,10 +253,6 @@ export default function GalleryHub() {
 
         <div className="editorial-hero-container">
           <div className="editorial-hero-content">
-            <span className="editorial-tagline">
-              Official Photography Archive
-            </span>
-
             <h1 className="editorial-title">
               Explore Uttar Pradesh in High Resolution
             </h1>
@@ -260,30 +289,7 @@ export default function GalleryHub() {
                 )}
               </div>
 
-              {/* TRENDING SEARCH SUGGESTIONS */}
-              <div className="editorial-trending-bar">
-                <span className="trending-title">Trending Searches:</span>
-                {[
-                  "Taj Mahal",
-                  "Varanasi Ghats",
-                  "Ganga Aarti",
-                  "Ram Mandir",
-                  "Bara Imambara",
-                  "Saryu River",
-                ].map((term) => (
-                  <button
-                    key={term}
-                    type="button"
-                    className="trending-chip"
-                    onClick={() => {
-                      setSearchQuery(term);
-                      setActiveCategory("all");
-                    }}
-                  >
-                    {term}
-                  </button>
-                ))}
-              </div>
+
             </div>
           </div>
         </div>
@@ -294,25 +300,54 @@ export default function GalleryHub() {
       ===================================================== */}
       <div className="editorial-toolbar-sticky">
         <div className="editorial-toolbar-container">
-          {/* Horizontal Tabs */}
-          <div className="editorial-tabs-list">
-            {DESTINATION_PILLS.map((pill) => {
-              const isActive = activeCategory === pill.value;
-              const IconComp = PILL_ICONS[pill.value] || FaLandmark;
-              return (
-                <button
-                  key={pill.value}
-                  type="button"
-                  className={`editorial-tab-btn ${isActive ? "active" : ""}`}
-                  onClick={() => {
-                    setActiveCategory(pill.value);
-                  }}
-                >
-                  <IconComp className="tab-icon" />
-                  <span className="tab-label">{pill.label}</span>
-                </button>
-              );
-            })}
+          {/* Horizontal Tabs Wrapper */}
+          <div className="editorial-tabs-wrapper">
+            {canScrollLeft && (
+              <button
+                type="button"
+                className="tabs-scroll-arrow left"
+                onClick={() => handleScrollTabs("left")}
+                aria-label="Scroll left"
+              >
+                <FaChevronLeft />
+              </button>
+            )}
+
+            <div className="editorial-tabs-list" ref={tabsListRef}>
+              {DESTINATION_PILLS.map((pill) => {
+                const isActive = activeCategory === pill.value;
+                const IconComp = PILL_ICONS[pill.value] || FaLandmark;
+                return (
+                  <button
+                    key={pill.value}
+                    type="button"
+                    className={`editorial-tab-btn ${isActive ? "active" : ""}`}
+                    onClick={(e) => {
+                      setActiveCategory(pill.value);
+                      e.currentTarget.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                        inline: "center",
+                      });
+                    }}
+                  >
+                    <IconComp className="tab-icon" />
+                    <span className="tab-label">{pill.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {canScrollRight && (
+              <button
+                type="button"
+                className="tabs-scroll-arrow right"
+                onClick={() => handleScrollTabs("right")}
+                aria-label="Scroll right"
+              >
+                <FaChevronRight />
+              </button>
+            )}
           </div>
 
           {/* Grid Layout Toggle */}
