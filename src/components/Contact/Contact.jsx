@@ -214,7 +214,7 @@ function Contact() {
                 </div>
                 <div className="info-content">
                   <span className="info-label">Toll-Free Helpline</span>
-                  <span className="info-val">+91 800-868-7870</span>
+                  <span className="info-val">+91 639-743-2030</span>
                 </div>
               </a>
 
