@@ -108,7 +108,7 @@ function Gallery() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className="image-wrapper">
-                <img src={place.img} alt={place.name} />
+                <img src={place.img} alt={place.name} loading="lazy" decoding="async" />
                 <div className="card-overlay"></div>
 
                 <div className="card-content">

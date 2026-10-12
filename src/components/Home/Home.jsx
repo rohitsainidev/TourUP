@@ -97,6 +97,8 @@ function Home() {
               src={slide.image} 
               alt={slide.title} 
               className="hero-image"
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
             />
             <div className="gradient-overlay"></div>
           </div>

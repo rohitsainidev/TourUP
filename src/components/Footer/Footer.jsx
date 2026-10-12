@@ -163,7 +163,7 @@ function Footer() {
 
             <a href="tel:+918008687870" className="footer-contact-row">
               <FaPhoneAlt className="f-icon" />
-              <span>+91 800-TOUR-UP</span>
+              <span>+91-6397432030</span>
             </a>
 
             <a href="mailto:support@tourup.com" className="footer-contact-row">

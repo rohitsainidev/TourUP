@@ -10,6 +10,7 @@ import {
   FaInfoCircle,
   FaEnvelope,
   FaChevronDown,
+  FaChevronRight,
   FaBars,
   FaTimes,
   FaGlobe,
@@ -49,8 +50,10 @@ function Navbar() {
      PLACES DROPDOWN
   ========================= */
   const toggleDropdown = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
       dropdownTimeoutRef.current = null;
@@ -59,6 +62,8 @@ function Navbar() {
   };
 
   const handleMouseEnterDropdown = () => {
+    // Only trigger hover on desktop
+    if (typeof window !== "undefined" && window.innerWidth <= 850) return;
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
       dropdownTimeoutRef.current = null;
@@ -67,6 +72,8 @@ function Navbar() {
   };
 
   const handleMouseLeaveDropdown = () => {
+    // Only trigger hover on desktop
+    if (typeof window !== "undefined" && window.innerWidth <= 850) return;
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
     }
@@ -280,29 +287,49 @@ function Navbar() {
               onMouseEnter={handleMouseEnterDropdown}
               onMouseLeave={handleMouseLeaveDropdown}
             >
-              <Link to="/agra" onClick={handlePlaceClick} className="dropdown-link-item">
+              <Link
+                to="/agra"
+                onClick={handlePlaceClick}
+                className={`dropdown-link-item ${location.pathname === "/agra" ? "current-city" : ""}`}
+              >
                 <div className="dropdown-link-content">
                   <span className="dropdown-city-name">Agra</span>
                   <span className="dropdown-city-tag">Taj Mahal & Fort</span>
                 </div>
+                <FaChevronRight className="dropdown-link-arrow" />
               </Link>
-              <Link to="/varanasi" onClick={handlePlaceClick} className="dropdown-link-item">
+              <Link
+                to="/varanasi"
+                onClick={handlePlaceClick}
+                className={`dropdown-link-item ${location.pathname === "/varanasi" ? "current-city" : ""}`}
+              >
                 <div className="dropdown-link-content">
                   <span className="dropdown-city-name">Varanasi</span>
                   <span className="dropdown-city-tag">Ghats & Ganga Aarti</span>
                 </div>
+                <FaChevronRight className="dropdown-link-arrow" />
               </Link>
-              <Link to="/ayodhya" onClick={handlePlaceClick} className="dropdown-link-item">
+              <Link
+                to="/ayodhya"
+                onClick={handlePlaceClick}
+                className={`dropdown-link-item ${location.pathname === "/ayodhya" ? "current-city" : ""}`}
+              >
                 <div className="dropdown-link-content">
                   <span className="dropdown-city-name">Ayodhya</span>
                   <span className="dropdown-city-tag">Ram Janmabhoomi</span>
                 </div>
+                <FaChevronRight className="dropdown-link-arrow" />
               </Link>
-              <Link to="/lucknow" onClick={handlePlaceClick} className="dropdown-link-item">
+              <Link
+                to="/lucknow"
+                onClick={handlePlaceClick}
+                className={`dropdown-link-item ${location.pathname === "/lucknow" ? "current-city" : ""}`}
+              >
                 <div className="dropdown-link-content">
                   <span className="dropdown-city-name">Lucknow</span>
                   <span className="dropdown-city-tag">City of Nawabs</span>
                 </div>
+                <FaChevronRight className="dropdown-link-arrow" />
               </Link>
             </div>
           </li>

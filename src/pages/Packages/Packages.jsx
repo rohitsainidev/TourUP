@@ -169,84 +169,131 @@ export default function Packages() {
       </section>
 
       {/* =====================================================
-          2. FLOATING SEARCH & FILTER BAR (Matches User Screenshot)
+          2. FLOATING LUXURY SEARCH & FILTER CONSOLE
       ===================================================== */}
       <div className="packages-filter-section">
-        <div className="packages-filter-card">
-          {/* Search Input */}
-          <div className="filter-input-wrap">
-            <FaSearch className="filter-icon" />
-            <input
-              type="text"
-              className="filter-search-input"
-              placeholder="Search by destination or package name..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              aria-label="Search tour packages"
-            />
+        <div className="packages-search-console">
+          {/* Segment 1: Search Input */}
+          <div className="console-segment segment-search">
+            <div className="segment-icon-wrap search-icon-badge">
+              <FaSearch />
+            </div>
+            <div className="segment-field-wrap">
+              <label className="segment-label">Explore</label>
+              <input
+                type="text"
+                className="search-console-input"
+                placeholder="Search packages or landmarks..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.target.blur();
+                  }
+                }}
+                aria-label="Search tour packages"
+              />
+            </div>
             {searchQuery && (
               <button
                 type="button"
-                className="filter-clear-icon-btn"
+                className="search-clear-btn"
                 onClick={() => setSearchQuery("")}
                 title="Clear search"
+                aria-label="Clear search text"
               >
                 <FaTimes />
               </button>
             )}
           </div>
 
-          {/* Filter: All Types */}
-          <div className="filter-dropdown-wrap">
-            <FaFilter className="filter-icon" />
-            <select
-              className="filter-select"
-              value={selectedType}
-              onChange={(e) => setSelectedType(e.target.value)}
-              aria-label="Filter by type"
-            >
-              {PACKAGE_TYPES.map((t) => (
-                <option key={t.value} value={t.value}>
-                  {t.label}
-                </option>
-              ))}
-            </select>
+          <div className="console-divider"></div>
+
+          {/* Filters Grid for Desktop inline / Mobile 2-columns */}
+          <div className="console-filters-grid">
+            {/* Segment 2: Tour Type */}
+            <div className="console-segment segment-filter">
+              <div className="segment-icon-wrap">
+                <FaFilter className="segment-icon" />
+              </div>
+              <div className="segment-field-wrap">
+                <label className="segment-label">Tour Type</label>
+                <select
+                  className="segment-select"
+                  value={selectedType}
+                  onChange={(e) => setSelectedType(e.target.value)}
+                  aria-label="Filter by package type"
+                >
+                  {PACKAGE_TYPES.map((t) => (
+                    <option key={t.value} value={t.value}>
+                      {t.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div className="console-divider filter-divider"></div>
+
+            {/* Segment 3: Destination */}
+            <div className="console-segment segment-filter">
+              <div className="segment-icon-wrap">
+                <FaMapMarkerAlt className="segment-icon" />
+              </div>
+              <div className="segment-field-wrap">
+                <label className="segment-label">Destination</label>
+                <select
+                  className="segment-select"
+                  value={selectedDestination}
+                  onChange={(e) => setSelectedDestination(e.target.value)}
+                  aria-label="Filter by destination"
+                >
+                  {PACKAGE_DESTINATIONS.map((d) => (
+                    <option key={d.value} value={d.value}>
+                      {d.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
           </div>
 
-          {/* Filter: All Categories / Destinations */}
-          <div className="filter-dropdown-wrap">
-            <FaFilter className="filter-icon" />
-            <select
-              className="filter-select"
-              value={selectedDestination}
-              onChange={(e) => setSelectedDestination(e.target.value)}
-              aria-label="Filter by category or destination"
-            >
-              {PACKAGE_DESTINATIONS.map((d) => (
-                <option key={d.value} value={d.value}>
-                  {d.label}
-                </option>
-              ))}
-            </select>
-          </div>
+          {/* Search CTA Button */}
+          <button
+            type="button"
+            className="console-search-btn"
+            onClick={() => {
+              const resultsEl = document.querySelector('.packages-results-section');
+              if (resultsEl) {
+                resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+            aria-label="Search"
+          >
+            <span>Search</span>
+            <FaArrowRight className="search-btn-icon" />
+          </button>
         </div>
 
-        {/* Quick Destination Pill Tags */}
-        <div className="destination-pills-bar">
-          <span className="pills-label">Popular Destinations:</span>
-          {PACKAGE_DESTINATIONS.map((dest) => {
-            const isActive = selectedDestination === dest.value;
-            return (
-              <button
-                key={dest.value}
-                type="button"
-                className={`destination-quick-pill ${isActive ? "active" : ""}`}
-                onClick={() => setSelectedDestination(dest.value)}
-              >
-                {dest.value === "all" ? "All Places" : dest.label}
-              </button>
-            );
-          })}
+        {/* Destination Quick-Pills / Interactive Tabs */}
+        <div className="destination-tabs-container">
+          <div className="destination-tabs-scroll">
+            {PACKAGE_DESTINATIONS.map((dest) => {
+              const isActive = selectedDestination === dest.value;
+              return (
+                <button
+                  key={dest.value}
+                  type="button"
+                  className={`destination-tab-btn ${isActive ? "active" : ""}`}
+                  onClick={() => setSelectedDestination(dest.value)}
+                >
+                  <span className="dest-tab-name">
+                    {dest.value === "all" ? "All Places" : dest.label}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
@@ -306,6 +353,7 @@ export default function Packages() {
                   alt={pkg.title}
                   className="package-card-img"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="package-media-gradient"></div>
 
@@ -427,6 +475,8 @@ export default function Packages() {
                     src={selectedPackage.image}
                     alt={selectedPackage.title}
                     className="modal-banner-img"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <Link
                     to={`/gallery/${selectedPackage.destination.toLowerCase()}`}

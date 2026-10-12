@@ -57,7 +57,7 @@ function ScrollHandler() {
         if (timerId) clearTimeout(timerId);
       };
     } else {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [location.pathname, location.hash, location.state]);
 

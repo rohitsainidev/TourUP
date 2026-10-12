@@ -9,12 +9,7 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
   FaClock,
-  FaInstagram,
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
   FaCheckCircle,
-  FaHeadset,
 } from "react-icons/fa";
 
 function Contact() {
@@ -198,9 +193,6 @@ function Contact() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="info-card-header">
-              <span className="info-badge">
-                <FaHeadset /> DIRECT ASSISTANCE
-              </span>
               <h3>UP Unveiled Travel Desk</h3>
               <p>Connect with our UP Tourism specialists for guidance and recommendations.</p>
             </div>
@@ -244,55 +236,6 @@ function Contact() {
                   <span className="info-label">Support Hours</span>
                   <span className="info-val">Mon – Sat: 9:00 AM – 7:00 PM IST</span>
                 </div>
-              </div>
-            </div>
-
-            {/* RESPONSE COMMITMENT */}
-            <div className="info-commitment-box">
-              <div className="commitment-indicator" />
-              <span>Average response time: <strong>under 2 hours</strong></span>
-            </div>
-
-            {/* SOCIAL COMMUNITY */}
-            <div className="info-social-wrap">
-              <span className="social-label">Follow Uttar Pradesh Tourism:</span>
-              <div className="info-social-links">
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-btn"
-                  aria-label="Facebook"
-                >
-                  <FaFacebookF />
-                </a>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-btn"
-                  aria-label="Instagram"
-                >
-                  <FaInstagram />
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-btn"
-                  aria-label="Twitter"
-                >
-                  <FaTwitter />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-btn"
-                  aria-label="LinkedIn"
-                >
-                  <FaLinkedinIn />
-                </a>
               </div>
             </div>
           </motion.div>

@@ -1,13 +1,133 @@
+/* =====================================================
+   GLOBAL SMOOTH SCROLLING & PERFORMANCE DESIGN SYSTEM
+   - Buttery-smooth scrolling for Desktop, Laptop & Mobile
+   - GPU-accelerated rendering & reduced layout shifts
+   - Modern typography smoothing & touch optimization
+===================================================== */
+
+:root {
+  --color-primary: #ff7300;
+  --color-primary-dark: #ea580c;
+  --color-surface: #ffffff;
+  --color-bg: #fafbfc;
+  --font-main: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 84px;
+  -webkit-overflow-scrolling: touch;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  min-height: 100%;
 }
 
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: #1e293b;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   CUSTOM LUXURY SCROLLBAR (Laptop & Desktop)
+===================================================== */
+
+/* Webkit (Chrome, Edge, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.75);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.25s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 rgba(241, 245, 249, 0.75);
+}
+
+/* Text Selection Accent */
+::selection {
+  background: rgba(255, 115, 0, 0.25);
+  color: #c2410c;
+}
+
+/* =====================================================
+   MOBILE TOUCH & INTERACTION PERFORMANCE
+===================================================== */
+
+/* Remove 300ms tap delay on mobile devices */
+a,
+button,
+input,
+select,
+textarea,
+summary {
+  touch-action: manipulation;
+}
+
+/* Image rendering optimizations */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =====================================================
+   GPU HARDWARE ACCELERATION & RENDER BOOSTERS
+===================================================== */
+
+/* Smooth momentum scrolling tracks */
+.destination-tabs-scroll,
+.gallery-hub-scroll,
+.gallery-grid,
+[data-scroll="touch"] {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Promote high-frequency animation elements to GPU composite layers */
+.navbar,
+.hero,
+.packages-hero,
+.packages-search-console,
+.package-card,
+.whatsapp-float-btn {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Root layout containers */
 #root {
   min-height: 100vh;
 }
@@ -20,4 +140,22 @@ html, body {
 
 .main-content {
   flex: 1;
+}
+
+/* =====================================================
+   ACCESSIBILITY: RESPECT REDUCED MOTION
+===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
