@@ -125,8 +125,7 @@ img {
   scroll-behavior: smooth;
 }
 
-/* Promote high-frequency animation elements to GPU composite layers */
-.navbar,
+/* Promote high-frequency animation elements to GPU composite layers (Exclude navbar to avoid fixed-position bugs) */
 .hero,
 .packages-hero,
 .packages-search-console,
@@ -139,28 +138,29 @@ img {
 /* Root layout containers */
 #root {
   min-height: 100vh;
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
-  overflow-x: clip;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
-  overflow-x: clip;
+  padding-top: 72px; /* Smooth spacing for fixed navbar */
+}
+
+@media (max-width: 850px) {
+  .app-container {
+    padding-top: 68px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    padding-top: 62px;
+  }
 }
 
 .main-content {
   flex: 1;
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
-  overflow-x: clip;
 }
 
 /* =====================================================

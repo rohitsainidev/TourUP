@@ -248,6 +248,24 @@ function Navbar() {
 
         {/* ================= NAVIGATION ================= */}
         <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
+          {/* Mobile Drawer Header with clean close button */}
+          <li className="mobile-drawer-header">
+            <div className="drawer-brand">
+              <img src={logoImg} alt="Logo" className="drawer-logo" />
+              <div className="drawer-brand-text">
+                <span className="drawer-title">UTTAR PRADESH</span>
+                <span className="drawer-subtitle">UNVEILED</span>
+              </div>
+            </div>
+            <button
+              type="button"
+              className="drawer-close-btn"
+              onClick={closeAll}
+              aria-label="Close menu"
+            >
+              <FaTimes />
+            </button>
+          </li>
 
           {/* HOME */}
           <li>
