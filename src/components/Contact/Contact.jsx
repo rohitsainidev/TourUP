@@ -208,7 +208,7 @@ function Contact() {
                 </div>
               </a>
 
-              <a href="tel:+918008687870" className="info-item-link">
+              <a href="tel:+916397432030" className="info-item-link">
                 <div className="info-icon">
                   <FaPhoneAlt />
                 </div>

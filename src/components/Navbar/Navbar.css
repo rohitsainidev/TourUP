@@ -11,6 +11,10 @@
   box-sizing: border-box;
 }
 
+.nav-mobile-backdrop {
+  display: none;
+}
+
 
 /* =====================================================
    NAVBAR
@@ -624,16 +628,44 @@
   }
 
 
-  /* MOBILE NAV DRAWER (SOLID OPAQUE BACKGROUND TO PREVENT BLEED-THROUGH) */
+  /* MOBILE BACKDROP OVERLAY */
+  .nav-mobile-backdrop {
+    display: block;
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: calc(100vh - 68px);
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 99990;
+  }
+
+  .nav-mobile-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* MOBILE NAV DRAWER (PREVENTS ACCIDENTAL SWIPE & HORIZONTAL OVERFLOW) */
 
   .nav-links {
     position: fixed;
 
     top: 68px;
 
-    left: 0;
+    right: 0;
 
-    width: 100%;
+    left: auto;
+
+    width: min(86vw, 360px);
 
     height: calc(100vh - 68px);
 
@@ -649,6 +681,7 @@
 
     background: #fffdf9;
 
+    border-left: 1px solid rgba(255, 152, 0, 0.2);
     border-top: 1px solid rgba(255, 152, 0, 0.15);
 
     overflow-y: auto;
@@ -657,19 +690,28 @@
 
     -webkit-overflow-scrolling: touch;
 
+    /* Hidden completely when closed to stop mobile gesture / horizontal drag */
     transform: translateX(100%);
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
 
     transition:
-      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.25s ease,
+      visibility 0.35s ease;
 
-    box-shadow:
-      -10px 0 35px rgba(0, 0, 0, 0.12);
+    box-shadow: none;
 
     z-index: 99999;
   }
 
   .nav-links.active {
     transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.18);
   }
 
   /* STAGGERED ENTRANCE FOR MENU ITEMS */
@@ -1061,11 +1103,15 @@
     font-size: 20px;
   }
 
+  .nav-mobile-backdrop {
+    top: 62px;
+    height: calc(100vh - 62px);
+  }
+
   .nav-links {
     top: 62px;
-
     height: calc(100vh - 62px);
-
+    width: min(88vw, 340px);
     padding: 14px 14px 30px;
   }
 

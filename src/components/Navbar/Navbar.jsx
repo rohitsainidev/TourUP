@@ -239,6 +239,13 @@ function Navbar() {
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
+        {/* Mobile Backdrop Overlay */}
+        <div
+          className={`nav-mobile-backdrop ${isMenuOpen ? "active" : ""}`}
+          onClick={closeAll}
+          aria-hidden="true"
+        />
+
         {/* ================= NAVIGATION ================= */}
         <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
 
